@@ -19,22 +19,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome!">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="2024 CBCTF WriteUpby PM25OO  CryptoEQUATI0N根据题目及输出内容，编写解题脚本 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667from Crypto.Uti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024 CBCTF WriteUp">
+<meta property="og:url" content="http://example.com/2024/12/25/2024CBCTF_WriteUp/index.html">
 <meta property="og:site_name" content="Welcome!">
+<meta property="og:description" content="2024 CBCTF WriteUpby PM25OO  CryptoEQUATI0N根据题目及输出内容，编写解题脚本 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667from Crypto.Uti">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/676c198fd0e0a243d4ea54a0.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/676c1b01d0e0a243d4ea54d2.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/676c1bc8d0e0a243d4ea54f5.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/676c1ca6d0e0a243d4ea552c.png">
+<meta property="article:published_time" content="2024-12-25T14:27:25.614Z">
+<meta property="article:modified_time" content="2024-12-29T12:13:11.440Z">
 <meta property="article:author" content="PM25OO">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/676c198fd0e0a243d4ea54a0.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/12/25/2024CBCTF_WriteUp/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/12/25/2024CBCTF_WriteUp/","path":"2024/12/25/2024CBCTF_WriteUp/","title":"2024 CBCTF WriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Welcome!</title>
+<title>2024 CBCTF WriteUp | Welcome!</title>
   
 
 
@@ -64,7 +73,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Welcome!</h1>
+      <p class="site-title">Welcome!</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -86,7 +95,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -99,6 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-CBCTF-WriteUp"><span class="nav-number">1.</span> <span class="nav-text">2024 CBCTF WriteUp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto"><span class="nav-number">1.1.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EQUATI0N"><span class="nav-number">1.1.1.</span> <span class="nav-text">EQUATI0N</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Misc"><span class="nav-number">1.2.</span> <span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%81%87%E6%B5%81%E9%87%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">真假流量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E8%A6%81%E4%BD%9C%E5%BC%8A"><span class="nav-number">1.2.2.</span> <span class="nav-text">不要作弊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-number">1.3.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SignIn"><span class="nav-number">1.3.1.</span> <span class="nav-text">SignIn</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -130,97 +140,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/29/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://pic1.imgdb.cn/item/67713eebd0e0a243d4ec28a5.jpg">
-      <meta itemprop="name" content="PM25OO">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome!">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Welcome!">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/29/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-29 17:44:15" itemprop="dateCreated datePublished" datetime="2024-12-29T17:44:15+08:00">2024-12-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/25/2024CBCTF_WriteUp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,13 +164,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Welcome!">
+      <meta itemprop="name" content="2024 CBCTF WriteUp | Welcome!">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/25/2024CBCTF_WriteUp/" class="post-title-link" itemprop="url">2024 CBCTF WriteUp</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          2024 CBCTF WriteUp
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -269,8 +199,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="2024-CBCTF-WriteUp"><a href="#2024-CBCTF-WriteUp" class="headerlink" title="2024 CBCTF WriteUp"></a>2024 CBCTF WriteUp</h1><div style="text-align: right;">by PM25OO</div>
+    <div class="post-body" itemprop="articleBody"><h1 id="2024-CBCTF-WriteUp"><a href="#2024-CBCTF-WriteUp" class="headerlink" title="2024 CBCTF WriteUp"></a>2024 CBCTF WriteUp</h1><div style="text-align: right;">by PM25OO</div>
 
 <h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="EQUATI0N"><a href="#EQUATI0N" class="headerlink" title="EQUATI0N"></a>EQUATI0N</h3><p>根据题目及输出内容，编写解题脚本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import inverse</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给定的数据</span></span><br><span class="line">data = [</span><br><span class="line">    (424507, 258891, 246908, 696833),</span><br><span class="line">    (725635, 532266, 196020, 913873),</span><br><span class="line">    (525257, 615406, 320693, 1041077),</span><br><span class="line">    (83144, 77839, 378617, 739631),</span><br><span class="line">    (118240, 112107, 439081, 659539),</span><br><span class="line">    (689363, 382486, 909472, 1013741),</span><br><span class="line">    (689679, 637871, 783227, 901529),</span><br><span class="line">    (255640, 331169, 471838, 594311),</span><br><span class="line">    (583522, 135573, 846849, 1010203),</span><br><span class="line">    (420869, 290426, 411805, 618377),</span><br><span class="line">    (945219, 32778, 905582, 1021651),</span><br><span class="line">    (620301, 441932, 117862, 869233),</span><br><span class="line">    (663631, 852415, 494895, 867619),</span><br><span class="line">    (699620, 557493, 53174, 730571),</span><br><span class="line">    (59702, 84201, 265515, 854299),</span><br><span class="line">    (20572, 600277, 106738, 765319),</span><br><span class="line">    (681296, 883108, 245309, 900577),</span><br><span class="line">    (100959, 581845, 520231, 716789),</span><br><span class="line">    (149718, 384454, 362305, 876761),</span><br><span class="line">    (373486, 791525, 183314, 847477),</span><br><span class="line">    (550280, 313487, 490116, 601397),</span><br><span class="line">    (318232, 430375, 409959, 934907),</span><br><span class="line">    (79907, 133279, 451022, 561917),</span><br><span class="line">    (171513, 94683, 332805, 615497),</span><br><span class="line">    (426495, 420294, 285501, 619079),</span><br><span class="line">]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">转换为 (a_i, d_i, p_i)</span></span><br><span class="line">equations = []</span><br><span class="line">for a, b, c, p in data:</span><br><span class="line">    d = (c - b) % p</span><br><span class="line">    equations.append((a, d, p))</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">求解单个方程</span></span><br><span class="line">def solve_one_equation(a, d, p):</span><br><span class="line">    inv_a = inverse(a, p)</span><br><span class="line">    return (inv_a * d) % p</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 CRT 合并方程</span></span><br><span class="line">def chinese_remainder_theorem(equations):</span><br><span class="line">    x = 0</span><br><span class="line">    N = 1</span><br><span class="line">    for _, _, p in equations:</span><br><span class="line">        N *= p</span><br><span class="line">    </span><br><span class="line">    for a, d, p in equations:</span><br><span class="line">        n = N // p</span><br><span class="line">        inv_n = inverse(n, p)</span><br><span class="line">        x += d * n * inv_n</span><br><span class="line">        x %= N</span><br><span class="line">    </span><br><span class="line">    return x, N</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">计算结果</span></span><br><span class="line">reduced_equations = [(1, solve_one_equation(a, d, p), p) for a, d, p in equations]</span><br><span class="line">m, mod = chinese_remainder_theorem(reduced_equations)</span><br><span class="line"></span><br><span class="line">print(f&quot;Recovered m: &#123;m&#125;&quot;)</span><br><span class="line"></span><br><span class="line">flag = long_to_bytes(m)</span><br><span class="line"></span><br><span class="line">print(f&quot;Recovered flag: &#123;flag.decode()&#125;&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -287,7 +216,6 @@
 <p><img src="https://pic.imgdb.cn/item/676c1ca6d0e0a243d4ea552c.png"></p>
 <p>构造URL <code>http://example.com/?a=STRING_A&amp;b=STRING_B</code> 得到flag</p>
 
-      
     </div>
 
     
@@ -295,11 +223,22 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/12/29/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
+
 
 
 
