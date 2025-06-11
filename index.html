@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300italic,400,400italic,700,700italic%7CJetBrains+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -188,7 +188,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-10 23:21:43" itemprop="dateModified" datetime="2025-05-10T23:21:43+08:00">2025-05-10</time>
+      <time title="修改时间：2025-06-12 00:30:09" itemprop="dateModified" datetime="2025-06-12T00:30:09+08:00">2025-06-12</time>
     </span>
 
   
@@ -207,7 +207,7 @@
 <h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="Level-24-Pacman"><a href="#Level-24-Pacman" class="headerlink" title="Level 24 Pacman"></a>Level 24 Pacman</h3><p>访问小游戏网站，送死五次得到gift，通过base64解码，得到的并非flag ：）<br>查看js前端代码，CTRL+F搜索gift，得到另外两个base64编码字符串，解码得到真正flag</p>
 <h3 id="Level-47-BandBomb"><a href="#Level-47-BandBomb" class="headerlink" title="Level 47 BandBomb"></a>Level 47 BandBomb</h3><p>看到文件上传入口，起初推测为文件上传漏洞，尝试植入webshell，失败。查看源码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> uploadsDir = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;uploads&#x27;</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (!fs.<span class="title function_">existsSync</span>(uploadsDir)) &#123;</span><br><span class="line">    fs.<span class="title function_">mkdirSync</span>(uploadsDir);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fs.<span class="title function_">readdir</span>(uploadsDir, <span class="function">(<span class="params">err, files</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">500</span>).<span class="title function_">render</span>(<span class="string">&#x27;mortis&#x27;</span>, &#123; <span class="attr">files</span>: [] &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.<span class="title function_">render</span>(<span class="string">&#x27;mortis&#x27;</span>, &#123; <span class="attr">files</span>: files &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>猜测为模板覆盖漏洞，尝试写入文件覆盖<code>mortis.ejs</code><br>上传文件<code>mortis.ejs</code>，内容为<code>&lt;%= process.env.FLAG || require(&#39;fs&#39;).readFileSync(&#39;/flag&#39;, &#39;utf8&#39;) %&gt;</code><br>根据express框架目录结构<br><img src="https://img2020.cnblogs.com/blog/513451/202109/513451-20210923104927066-176795702.jpg"><br>模板文件应该在<code>/views</code>下<br>再访问<code>/rename</code>，<code>content</code>为<code>&#123;&quot;oldName&quot;:&quot;mortis.ejs&quot;,&quot;newName&quot;:&quot;../views/mortis.ejs&quot;&#125;</code>进行路径攻击<br>最后刷新重新渲染页面得到flag</p>
+<p>猜测为模板覆盖漏洞，尝试写入文件覆盖<code>mortis.ejs</code><br>上传文件<code>mortis.ejs</code>，内容为<code>&lt;%= process.env.FLAG || require(&#39;fs&#39;).readFileSync(&#39;/flag&#39;, &#39;utf8&#39;) %&gt;</code><br>根据express框架目录结构<br><img src="https://pic1.imgdb.cn/item/6849af0758cb8da5c845dcff.jpg"><br>模板文件应该在<code>/views</code>下<br>再访问<code>/rename</code>，<code>content</code>为<code>&#123;&quot;oldName&quot;:&quot;mortis.ejs&quot;,&quot;newName&quot;:&quot;../views/mortis.ejs&quot;&#125;</code>进行路径攻击<br>最后刷新重新渲染页面得到flag</p>
 <h3 id="Level-69-MysteryMessageBoard"><a href="#Level-69-MysteryMessageBoard" class="headerlink" title="Level 69 MysteryMessageBoard"></a>Level 69 MysteryMessageBoard</h3><p>首先弱口令爆破用户名shallot，得到密码888888，访问<code>/flag</code>提示admin才能访问， 查看<code>/admin</code>提到admin会来查看留言板，想到通过留言板xss注入让admin去获取flag写在留言板上，payload如下：  </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="title function_">fetch</span>(<span class="string">&#x27;/flag&#x27;</span>)</span><br><span class="line">        .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="title function_">text</span>())</span><br><span class="line">        .<span class="title function_">then</span>(<span class="function"><span class="params">flag</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">fetch</span>(<span class="string">&#x27;/&#x27;</span>, &#123;</span><br><span class="line">                <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">                <span class="attr">headers</span>: &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>&#125;,</span><br><span class="line">                <span class="attr">body</span>: <span class="string">&quot;comment=&quot;</span> + flag</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>访问<code>/admin</code>再回去发现flag出现在留言板上</p>
@@ -434,7 +434,349 @@
     <span class="author" itemprop="copyrightHolder">PM25OO</span>
   </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div><style>
+#floating-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  height: auto;
+  background: rgba(30, 30, 30, 0.6); /* 半透明黑色背景 */
+  color: #e0e0e0; /* 浅灰白色文字 */
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+  padding: 16px;
+  z-index: 9999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+#floating-player .title {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #eee;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+#floating-player .controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#floating-player button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff; /* 现代纯白色 */
+  transition: transform 0.2s, color 0.3s;
+}
+
+#floating-player button:hover {
+  transform: scale(1.2);
+  color: #ddd; /* 悬停时浅灰色 */
+}
+
+#floating-player svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor; /* 使用按钮颜色 */
+}
+
+#floating-player input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+  background: linear-gradient(
+    to right,
+    #00bcd4 0%,
+    #00bcd4 var(--progress, 0%),
+    #333 var(--progress, 0%),
+    #333 100%
+  );
+  cursor: default;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 隐藏滑块 */
+#floating-player input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+#floating-player input[type="range"]::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+@media (max-width: 480px) {
+  #floating-player {
+    width: 90%;
+    right: 5%;
+    bottom: 10px;
+    padding: 10px;
+  }
+}
+
+#play-pause-button {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 0;
+}
+
+#play-pause-button .icon {
+  position: absolute;
+  top: 0; left: 0;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: opacity 0.3s ease;
+}
+
+#play-pause-button .play-icon {
+  opacity: 1;
+}
+
+#play-pause-button .pause-icon {
+  opacity: 0;
+}
+
+#play-pause-button.playing .play-icon {
+  opacity: 0;
+}
+
+#play-pause-button.playing .pause-icon {
+  opacity: 1;
+}
+
+/* 折叠时播放器样式 */
+#floating-player.collapsed {
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 0;
+}
+
+/* 折叠状态下完全隐藏所有内容 */
+#floating-player.collapsed .title,
+#floating-player.collapsed .controls,
+#floating-player.collapsed input[type="range"],
+#floating-player.collapsed audio {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0);
+}
+
+/* 折叠状态下只显示播放按钮 */
+#floating-player.collapsed .controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+}
+
+#floating-player.collapsed #play-pause-button {
+  opacity: 1;
+  transform: scale(1);
+  position: static;
+}
+
+#floating-player.collapsed .control-btn:not(#play-pause-button) {
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+#floating-player audio {
+  opacity: 0;
+  visibility: hidden;
+}
+
+</style>
+
+<div id="floating-player">
+  <div class="title" id="song-title">Loading...</div>
+  <div class="controls">
+    <button class="control-btn" id="prev-btn" onclick="prevSong()" title="上一首" aria-label="上一首">
+      <svg viewBox="0 0 24 24"><path d="M6 18V6h2v12H6zm3-6 9 6V6l-9 6z"/></svg>
+    </button>
+    <button class="control-btn" id="play-pause-button" onclick="togglePlay()" title="播放/暂停" aria-label="播放/暂停">
+        <svg viewBox="0 0 24 24" class="icon play-icon">
+            <path d="M8 5v14l11-7z"/>
+        </svg>
+        <svg viewBox="0 0 24 24" class="icon pause-icon">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+    </button>
+    <button class="control-btn" id="next-btn" onclick="nextSong()" title="下一首" aria-label="下一首">
+      <svg viewBox="0 0 24 24"><path d="M16 6v12h-2V6h2zm-3 6-9 6V6l9 6z"/></svg>
+    </button>
   </div>
+  <input type="range" id="progress-bar" min="0" max="100" value="0" readonly>
+  <audio id="bgm-player" preload="auto"></audio>
+</div>
+
+<script>
+const playlist = [
+  { title: "I Fell in Love with You at Coffee Shop", path: "/music/I Fell in Love with You at Coffee Shop.mp3" },
+  { title: "MERMAID", path: "/music/MERMAID.mp3" },
+  { title: "Tyndall", path: "/music/Tyndall.mp3" }
+];
+
+let index = 0;
+
+const audio = document.getElementById('bgm-player');
+const titleEl = document.getElementById('song-title');
+const progressBar = document.getElementById('progress-bar');
+const playPauseIcon = document.getElementById('play-pause-icon');
+const playPauseButton = document.getElementById('play-pause-button');
+
+
+function loadSong(i) {
+  index = (i + playlist.length) % playlist.length;
+  const song = playlist[index];
+  audio.src = song.path;
+  setSongTitle(song.title);
+  audio.play();
+  playPauseButton.classList.add('playing'); // 保证状态同步
+}
+
+
+function prevSong() {
+  loadSong(index - 1);
+}
+
+function nextSong() {
+  loadSong(index + 1);
+}
+
+function togglePlay() {
+  if (audio.paused) {
+    audio.play();
+    playPauseButton.classList.add('playing');
+  } else {
+    audio.pause();
+    playPauseButton.classList.remove('playing');
+  }
+}
+
+function setSongTitle(newTitle) {
+  // 先淡出
+  titleEl.style.opacity = '0';
+  setTimeout(() => {
+    titleEl.innerText = newTitle; // 改文本
+    titleEl.style.opacity = '1';  // 淡入
+  }, 400); // 跟 CSS transition 时间一致
+}
+
+function updatePlayIcon() {
+  playPauseIcon.innerHTML = audio.paused
+    ? '<path d="M8 5v14l11-7z"/>'
+    : '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+}
+
+audio.addEventListener('ended', () => {
+  nextSong();
+});
+
+audio.addEventListener('timeupdate', () => {
+  const percent = (audio.currentTime / audio.duration) * 100 || 0;
+  progressBar.value = percent;
+  progressBar.style.setProperty('--progress', percent + '%');
+});
+
+// 自动播放：首次点击网页任意处
+document.addEventListener('DOMContentLoaded', function () {
+  document.body.addEventListener('click', () => {
+    if (!audio.src) loadSong(0);
+    else audio.play();
+  }, { once: true });
+});
+
+const floatingPlayer = document.getElementById('floating-player');
+const controlButtons = floatingPlayer.querySelectorAll('.control-btn');
+
+let isCollapsed = false;
+
+floatingPlayer.addEventListener('click', (e) => {
+  if (isCollapsed) {
+    // 折叠状态下点击播放器任何位置展开
+    expandPlayer();
+    return;
+  }
+
+  // 检查点击的目标是否是控制按钮或其子元素
+  const clickedElement = e.target;
+  const isControlButton = clickedElement.closest('.control-btn') || 
+                         clickedElement.closest('#progress-bar') ||
+                         clickedElement.id === 'progress-bar';
+
+  // 如果不是控制元素，触发折叠
+  if (!isControlButton) {
+    collapsePlayer();
+  }
+});
+
+function collapsePlayer() {
+  floatingPlayer.classList.add('collapsed');
+  isCollapsed = true;
+}
+
+function expandPlayer() {
+  floatingPlayer.classList.remove('collapsed');
+  isCollapsed = false;
+}
+
+</script>
+
 
     </div>
   </footer>
@@ -461,7 +803,8 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
 
