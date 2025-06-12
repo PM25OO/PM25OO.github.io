@@ -221,16 +221,26 @@
     <span class="author" itemprop="copyrightHolder">PM25OO</span>
   </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div><style>
+  </div><script>
+// 播放列表配置 - 在此处添加或编辑歌曲
+const playlist = [
+  { title: "Touch of the law", path: "/music/Touch of the law.mp3" },
+  { title: "I Fell in Love with You at Coffee Shop", path: "/music/I Fell in Love with You at Coffee Shop.mp3" },
+  { title: "MERMAID", path: "/music/MERMAID.mp3" },
+  { title: "Tyndall", path: "/music/Tyndall.mp3" }
+];
+</script>
+
+<style>
 #floating-player {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 280px;
+  width: 200px; /* 缩小宽度，适应无标题设计 */
   height: auto;
   background: rgba(30, 30, 30, 0.6); /* 半透明黑色背景 */
   color: #e0e0e0; /* 浅灰白色文字 */
-  border-radius: 12px;
+  border-radius: 16px; /* 圆角方形 */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
   padding: 16px;
   z-index: 9999;
@@ -245,19 +255,7 @@
   overflow: hidden;
 }
 
-#floating-player .title {
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #eee;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* 删除 title 相关样式 */
 
 #floating-player .controls {
   display: flex;
@@ -327,15 +325,6 @@
   cursor: default;
 }
 
-@media (max-width: 480px) {
-  #floating-player {
-    width: 90%;
-    right: 5%;
-    bottom: 10px;
-    padding: 10px;
-  }
-}
-
 #play-pause-button {
   position: relative;
   width: 24px;
@@ -390,7 +379,6 @@
 }
 
 /* 折叠状态下完全隐藏所有内容 */
-#floating-player.collapsed .title,
 #floating-player.collapsed .controls,
 #floating-player.collapsed input[type="range"],
 #floating-player.collapsed audio {
@@ -427,10 +415,117 @@
   visibility: hidden;
 }
 
+/* 播放列表样式 */
+#playlist-container {
+  position: fixed;
+  bottom: 120px; /* 增加与播放器的间距 */
+  right: 20px;
+  width: 200px; /* 与播放器宽度一致 */
+  height: 200px;
+  background: rgba(30, 30, 30, 0.6);
+  color: #e0e0e0;
+  border-radius: 16px; /* 与播放器圆角一致 */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+  padding: 16px;
+  z-index: 9998;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  /* 默认隐藏 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+/* 播放列表显示状态 */
+#playlist-container.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#playlist-container .playlist-content {
+  height: 100%; /* 使用全部高度 */
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* 自定义滚动条 */
+#playlist-container .playlist-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+#playlist-container .playlist-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+#playlist-container .playlist-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 188, 212, 0.6);
+  border-radius: 2px;
+}
+
+#playlist-container .playlist-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 188, 212, 0.8);
+}
+
+.playlist-item {
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.playlist-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.playlist-item.active {
+  background: rgba(0, 188, 212, 0.2);
+  border-left-color: #00bcd4;
+  color: #fff;
+}
+
+.playlist-item.active::before {
+  content: "♪ ";
+  color: #00bcd4;
+}
+
+@media (max-width: 480px) {
+  #floating-player {
+    width: 90%;
+    right: 5%;
+    bottom: 10px;
+    padding: 10px;
+  }
+  
+  #playlist-container {
+    width: 90%;
+    right: 5%;
+    bottom: 100px; /* 在移动端也增加间距 */
+  }
+}
+
+/* 其他现有样式保持不变 */
 </style>
 
+<!-- 播放列表 -->
+<div id="playlist-container">
+  <div class="playlist-content" id="playlist-content">
+    <!-- 播放列表项将通过 JavaScript 动态生成 -->
+  </div>
+</div>
+
 <div id="floating-player">
-  <div class="title" id="song-title">Loading...</div>
   <div class="controls">
     <button class="control-btn" id="prev-btn" onclick="prevSong()" title="上一首" aria-label="上一首">
       <svg viewBox="0 0 24 24"><path d="M6 18V6h2v12H6zm3-6 9 6V6l-9 6z"/></svg>
@@ -452,30 +547,26 @@
 </div>
 
 <script>
-const playlist = [
-  { title: "I Fell in Love with You at Coffee Shop", path: "/music/I Fell in Love with You at Coffee Shop.mp3" },
-  { title: "MERMAID", path: "/music/MERMAID.mp3" },
-  { title: "Tyndall", path: "/music/Tyndall.mp3" }
-];
-
 let index = 0;
 
 const audio = document.getElementById('bgm-player');
-const titleEl = document.getElementById('song-title');
 const progressBar = document.getElementById('progress-bar');
-const playPauseIcon = document.getElementById('play-pause-icon');
 const playPauseButton = document.getElementById('play-pause-button');
+const playlistContainer = document.getElementById('playlist-container');
+const playlistContent = document.getElementById('playlist-content');
+const floatingPlayer = document.getElementById('floating-player');
 
+let isCollapsed = false;
+let playlistTimeout;
 
 function loadSong(i) {
   index = (i + playlist.length) % playlist.length;
   const song = playlist[index];
   audio.src = song.path;
-  setSongTitle(song.title);
+  updatePlaylistActive();
   audio.play();
   playPauseButton.classList.add('playing'); // 保证状态同步
 }
-
 
 function prevSong() {
   loadSong(index - 1);
@@ -495,19 +586,83 @@ function togglePlay() {
   }
 }
 
-function setSongTitle(newTitle) {
-  // 先淡出
-  titleEl.style.opacity = '0';
-  setTimeout(() => {
-    titleEl.innerText = newTitle; // 改文本
-    titleEl.style.opacity = '1';  // 淡入
-  }, 400); // 跟 CSS transition 时间一致
+// 生成播放列表
+function generatePlaylist() {
+  playlistContent.innerHTML = '';
+  playlist.forEach((song, i) => {
+    const item = document.createElement('div');
+    item.className = 'playlist-item';
+    item.textContent = song.title;
+    item.onclick = () => loadSong(i);
+    if (i === index) {
+      item.classList.add('active');
+    }
+    playlistContent.appendChild(item);
+  });
 }
 
-function updatePlayIcon() {
-  playPauseIcon.innerHTML = audio.paused
-    ? '<path d="M8 5v14l11-7z"/>'
-    : '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+// 更新播放列表活跃状态
+function updatePlaylistActive() {
+  const items = playlistContent.querySelectorAll('.playlist-item');
+  items.forEach((item, i) => {
+    item.classList.toggle('active', i === index);
+  });
+}
+
+// 显示播放列表
+function showPlaylist() {
+  if (!isCollapsed) {
+    clearTimeout(playlistTimeout);
+    playlistContainer.classList.add('visible');
+  }
+}
+
+// 隐藏播放列表
+function hidePlaylist() {
+  playlistTimeout = setTimeout(() => {
+    playlistContainer.classList.remove('visible');
+  }, 500); // 改为0.5秒
+}
+
+// 播放器鼠标事件
+floatingPlayer.addEventListener('mouseenter', showPlaylist);
+floatingPlayer.addEventListener('mouseleave', hidePlaylist);
+
+// 播放列表鼠标事件
+playlistContainer.addEventListener('mouseenter', () => {
+  if (!isCollapsed) {
+    clearTimeout(playlistTimeout);
+  }
+});
+playlistContainer.addEventListener('mouseleave', hidePlaylist);
+
+// 播放器点击事件处理
+floatingPlayer.addEventListener('click', (e) => {
+  if (isCollapsed) {
+    expandPlayer();
+    return;
+  }
+
+  const clickedElement = e.target;
+  const isControlButton = clickedElement.closest('.control-btn') || 
+                         clickedElement.closest('#progress-bar') ||
+                         clickedElement.id === 'progress-bar';
+
+  if (!isControlButton) {
+    collapsePlayer();
+  }
+});
+
+function collapsePlayer() {
+  floatingPlayer.classList.add('collapsed');
+  playlistContainer.classList.remove('visible');
+  clearTimeout(playlistTimeout);
+  isCollapsed = true;
+}
+
+function expandPlayer() {
+  floatingPlayer.classList.remove('collapsed');
+  isCollapsed = false;
 }
 
 audio.addEventListener('ended', () => {
@@ -520,48 +675,18 @@ audio.addEventListener('timeupdate', () => {
   progressBar.style.setProperty('--progress', percent + '%');
 });
 
-// 自动播放：首次点击网页任意处
+// 初始化
 document.addEventListener('DOMContentLoaded', function () {
+  generatePlaylist();
+  
   document.body.addEventListener('click', () => {
-    if (!audio.src) loadSong(0);
-    else audio.play();
+    if (!audio.src) {
+      loadSong(0);
+    } else {
+      audio.play();
+    }
   }, { once: true });
 });
-
-const floatingPlayer = document.getElementById('floating-player');
-const controlButtons = floatingPlayer.querySelectorAll('.control-btn');
-
-let isCollapsed = false;
-
-floatingPlayer.addEventListener('click', (e) => {
-  if (isCollapsed) {
-    // 折叠状态下点击播放器任何位置展开
-    expandPlayer();
-    return;
-  }
-
-  // 检查点击的目标是否是控制按钮或其子元素
-  const clickedElement = e.target;
-  const isControlButton = clickedElement.closest('.control-btn') || 
-                         clickedElement.closest('#progress-bar') ||
-                         clickedElement.id === 'progress-bar';
-
-  // 如果不是控制元素，触发折叠
-  if (!isControlButton) {
-    collapsePlayer();
-  }
-});
-
-function collapsePlayer() {
-  floatingPlayer.classList.add('collapsed');
-  isCollapsed = true;
-}
-
-function expandPlayer() {
-  floatingPlayer.classList.remove('collapsed');
-  isCollapsed = false;
-}
-
 </script>
 
 
