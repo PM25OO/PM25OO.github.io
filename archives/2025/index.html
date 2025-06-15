@@ -240,6 +240,14 @@ const playlist = [
   { title: "MERMAID", path: "/music/MERMAID.mp3" },
   { title: "Tyndall", path: "/music/Tyndall.mp3" }
 ];
+
+// 淡入淡出配置
+const FADE_DURATION = 300; // 淡入淡出持续时间(毫秒)
+const FADE_STEPS = 30; // 淡入淡出步数
+const FADE_INTERVAL = FADE_DURATION / FADE_STEPS; // 每步间隔时间
+
+let fadeTimeout;
+let fadeInterval;
 </script>
 
 <style>
@@ -570,13 +578,69 @@ const floatingPlayer = document.getElementById('floating-player');
 let isCollapsed = false;
 let playlistTimeout;
 
+// 淡入函数
+function fadeIn() {
+  clearTimeout(fadeTimeout);
+  clearInterval(fadeInterval);
+  
+  audio.volume = 0;
+  const step = 1 / FADE_STEPS;
+  let currentStep = 0;
+  
+  fadeInterval = setInterval(() => {
+    currentStep++;
+    audio.volume = Math.min(currentStep * step, 1);
+    
+    if (currentStep >= FADE_STEPS) {
+      clearInterval(fadeInterval);
+      audio.volume = 1;
+    }
+  }, FADE_INTERVAL);
+}
+
+// 淡出函数
+function fadeOut(callback) {
+  clearTimeout(fadeTimeout);
+  clearInterval(fadeInterval);
+  
+  const startVolume = audio.volume;
+  const step = startVolume / FADE_STEPS;
+  let currentStep = 0;
+  
+  fadeInterval = setInterval(() => {
+    currentStep++;
+    audio.volume = Math.max(startVolume - (currentStep * step), 0);
+    
+    if (currentStep >= FADE_STEPS || audio.volume <= 0) {
+      clearInterval(fadeInterval);
+      audio.volume = 0;
+      if (callback) callback();
+    }
+  }, FADE_INTERVAL);
+}
+
 function loadSong(i) {
   index = (i + playlist.length) % playlist.length;
   const song = playlist[index];
-  audio.src = song.path;
-  updatePlaylistActive();
-  audio.play();
-  playPauseButton.classList.add('playing'); // 保证状态同步
+  
+  // 如果当前有音乐在播放，先淡出再切换
+  if (!audio.paused) {
+    fadeOut(() => {
+      audio.src = song.path;
+      updatePlaylistActive();
+      audio.play().then(() => {
+        fadeIn();
+        playPauseButton.classList.add('playing');
+      });
+    });
+  } else {
+    audio.src = song.path;
+    updatePlaylistActive();
+    audio.play().then(() => {
+      fadeIn();
+      playPauseButton.classList.add('playing');
+    });
+  }
 }
 
 function prevSong() {
@@ -589,11 +653,15 @@ function nextSong() {
 
 function togglePlay() {
   if (audio.paused) {
-    audio.play();
-    playPauseButton.classList.add('playing');
+    audio.play().then(() => {
+      fadeIn();
+      playPauseButton.classList.add('playing');
+    });
   } else {
-    audio.pause();
-    playPauseButton.classList.remove('playing');
+    fadeOut(() => {
+      audio.pause();
+      playPauseButton.classList.remove('playing');
+    });
   }
 }
 
@@ -690,11 +758,17 @@ audio.addEventListener('timeupdate', () => {
 document.addEventListener('DOMContentLoaded', function () {
   generatePlaylist();
   
+  // 设置初始音量为0，准备淡入效果
+  audio.volume = 0;
+  
   document.body.addEventListener('click', () => {
     if (!audio.src) {
       loadSong(0);
     } else {
-      audio.play();
+      audio.play().then(() => {
+        fadeIn();
+        playPauseButton.classList.add('playing');
+      });
     }
   }, { once: true });
 });
