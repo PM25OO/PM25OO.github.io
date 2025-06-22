@@ -1291,7 +1291,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #9e9400;
+  background: #965bb6;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1301,6 +1301,7 @@ pre code {
   width: 4px;
 }
 .links-of-blogroll-item {
+  display: inline-block;
   padding: 2px 10px;
 }
 .links-of-blogroll-item a {
