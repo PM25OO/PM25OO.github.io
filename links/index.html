@@ -19,19 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="友情链接     分享一些优秀的网站和博客，值得一看！                     .links-container {   max-width: 100%;   margin: 0 auto;   padding: 20px 0; }  .links-header {   text-align: center;   margin-bottom: 3rem; }  .">
+    <meta name="description" content="友情链接     分享一些优秀的网站和博客，值得一看！             正在加载友链...         .links-container {   max-width: 100%;   margin: 0 auto;   padding: 20px 0; }  .links-header {   text-align: center;   margin-bottom:">
 <meta property="og:type" content="website">
 <meta property="og:title" content="PM25OO&#39;s Blog">
 <meta property="og:url" content="https://pm25oo.github.io/links/index.html">
 <meta property="og:site_name" content="PM25OO&#39;s Blog">
-<meta property="og:description" content="友情链接     分享一些优秀的网站和博客，值得一看！                     .links-container {   max-width: 100%;   margin: 0 auto;   padding: 20px 0; }  .links-header {   text-align: center;   margin-bottom: 3rem; }  .">
+<meta property="og:description" content="友情链接     分享一些优秀的网站和博客，值得一看！             正在加载友链...         .links-container {   max-width: 100%;   margin: 0 auto;   padding: 20px 0; }  .links-header {   text-align: center;   margin-bottom:">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/link/missing.png">
-<meta property="article:published_time" content="2025-06-22T08:41:31.389Z">
-<meta property="article:modified_time" content="2025-06-22T08:41:31.389Z">
+<meta property="article:published_time" content="2025-06-22T09:22:17.288Z">
+<meta property="article:modified_time" content="2025-06-22T09:22:17.288Z">
 <meta property="article:author" content="PM25OO">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/link/missing.png">
 
 
 <link rel="canonical" href="https://pm25oo.github.io/links/">
@@ -152,18 +150,6 @@
     </div>
 
     
-    <div class="sidebar-inner sidebar-blogroll">
-      <div class="links-of-blogroll animated">
-        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
-          链接
-        </div>
-        <ul class="links-of-blogroll-list">
-            <li class="links-of-blogroll-item">
-              <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com" rel="noopener" target="_blank">GitHub</a>
-            </li>
-        </ul>
-      </div>
-    </div>
   </aside>
 
 
@@ -196,7 +182,7 @@
   </div>
 
   <div class="links-grid" id="links-grid">
-    <!-- 友链卡片将通过 JavaScript 动态加载 -->
+    <div class="loading"><i class="fa fa-spinner fa-spin"></i> 正在加载友链...</div>
   </div>
 </div>
 
@@ -300,6 +286,7 @@
   padding: 3rem;
   color: #7f8c8d;
   font-size: 1.1rem;
+  grid-column: 1 / -1;
 }
 
 .error {
@@ -307,6 +294,7 @@
   padding: 3rem;
   color: #e74c3c;
   font-size: 1.1rem;
+  grid-column: 1 / -1;
 }
 
 /* 深色模式适配 */
@@ -357,79 +345,6 @@
 }
 </style>
 
-
-<!-- JavaScript 脚本 -->
-<script>
-// 友链加载函数
-function loadLinks() {
-  const linksGrid = document.getElementById('links-grid');
-  
-  if (!linksGrid) return;
-  
-  // 显示加载状态
-  linksGrid.innerHTML = '<div class="loading"><i class="fa fa-spinner fa-spin"></i> 正在加载友链...</div>';
-  
-  // 获取友链数据
-  fetch('/links/linklist.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      linksGrid.innerHTML = '';
-      
-      if (data.length === 0) {
-        linksGrid.innerHTML = '<div class="error">暂无友链数据</div>';
-        return;
-      }
-      
-      data.forEach(link => {
-        if (link.name && link.site) {
-          const linkCard = document.createElement('div');
-          linkCard.className = 'link-card';
-          
-          const avatarUrl = link.avatar || `https://www.google.com/s2/favicons?domain=${link.site}&sz=64`;
-          
-          linkCard.innerHTML = `
-            <div class="link-card-content">
-              <img class="link-avatar" 
-                   src="${avatarUrl}" 
-                   alt="${link.name}" 
-                   onerror="this.src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/link/missing.png'">
-              <h3 class="link-title">${link.name}</h3>
-            </div>
-          `;
-          
-          // 点击卡片打开链接
-          linkCard.addEventListener('click', function() {
-            window.open(link.site, '_blank', 'noopener,noreferrer');
-          });
-          
-          linksGrid.appendChild(linkCard);
-        }
-      });
-    })
-    .catch(error => {
-      console.error('Error loading links:', error);
-      linksGrid.innerHTML = '<div class="error"><i class="fa fa-exclamation-triangle"></i> 加载友链失败，请稍后重试</div>';
-    });
-}
-
-// DOM 加载完成后执行
-document.addEventListener('DOMContentLoaded', loadLinks);
-
-// PJAX 兼容性处理
-document.addEventListener('pjax:complete', loadLinks);
-
-// 如果页面已加载完成，立即执行
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadLinks);
-} else {
-  loadLinks();
-}
-</script>
 
 
       </div>
@@ -1043,6 +958,143 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+<script>
+(function() {
+  'use strict';
+  
+  // 友链页面处理器
+  window.LinksPageManager = window.LinksPageManager || {
+    initialized: false,
+    currentPageLoaded: false
+  };
+  
+  // 友链加载函数
+  function loadLinksData() {
+    var linksGrid = document.getElementById('links-grid');
+    
+    if (!linksGrid || window.LinksPageManager.currentPageLoaded) {
+      return;
+    }
+    
+    // 标记当前页面已开始加载
+    window.LinksPageManager.currentPageLoaded = true;
+    
+    // 显示加载状态
+    linksGrid.innerHTML = '<div class="loading"><i class="fa fa-spinner fa-spin"></i> 正在加载友链...</div>';
+    
+    // 获取友链数据
+    fetch('/links/linklist.json')
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        return response.json();
+      })
+      .then(function(data) {
+        // 再次检查元素是否存在（防止页面切换）
+        var currentLinksGrid = document.getElementById('links-grid');
+        if (!currentLinksGrid) {
+          return;
+        }
+        
+        // 清空容器
+        currentLinksGrid.innerHTML = '';
+        
+        if (!data || data.length === 0) {
+          currentLinksGrid.innerHTML = '<div class="error">暂无友链数据</div>';
+          return;
+        }
+        
+        // 生成友链卡片
+        data.forEach(function(link) {
+          if (link.name && link.site) {
+            var linkCard = document.createElement('div');
+            linkCard.className = 'link-card';
+            
+            var avatarUrl = link.avatar || ('https://www.google.com/s2/favicons?domain=' + link.site + '&sz=64');
+            
+            linkCard.innerHTML = 
+              '<div class="link-card-content">' +
+                '<img class="link-avatar" ' +
+                     'src="' + avatarUrl + '" ' +
+                     'alt="' + link.name + '" ' +
+                     'onerror="this.src=\'https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/link/missing.png\'">' +
+                '<h3 class="link-title">' + link.name + '</h3>' +
+              '</div>';
+            
+            // 添加点击事件
+            linkCard.addEventListener('click', function() {
+              window.open(link.site, '_blank', 'noopener,noreferrer');
+            });
+            
+            currentLinksGrid.appendChild(linkCard);
+          }
+        });
+      })
+      .catch(function(error) {
+        var currentLinksGrid = document.getElementById('links-grid');
+        if (currentLinksGrid) {
+          currentLinksGrid.innerHTML = '<div class="error"><i class="fa fa-exclamation-triangle"></i> 加载友链失败，请稍后重试</div>';
+        }
+      });
+  }
+  
+  // 检查是否为友链页面
+  function isLinksPage() {
+    return document.getElementById('links-grid') !== null;
+  }
+  
+  // 初始化友链页面
+  function initLinksPage() {
+    if (isLinksPage()) {
+      // 重置当前页面加载状态
+      window.LinksPageManager.currentPageLoaded = false;
+      
+      // 延迟执行，确保页面渲染完成
+      setTimeout(loadLinksData, 50);
+    }
+  }
+  
+  // 初始化事件监听器
+  function initEventListeners() {
+    if (window.LinksPageManager.initialized) {
+      return;
+    }
+    
+    window.LinksPageManager.initialized = true;
+    
+    // PJAX 事件监听
+    document.addEventListener('pjax:start', function() {
+      window.LinksPageManager.currentPageLoaded = false;
+    });
+    
+    document.addEventListener('pjax:complete', function() {
+      setTimeout(initLinksPage, 100);
+    });
+    
+    // DOM 加载完成事件
+    document.addEventListener('DOMContentLoaded', initLinksPage);
+    
+    // 页面显示事件
+    window.addEventListener('pageshow', function(event) {
+      if (isLinksPage() && !window.LinksPageManager.currentPageLoaded) {
+        setTimeout(initLinksPage, 50);
+      }
+    });
+  }
+  
+  // 立即初始化
+  initEventListeners();
+  
+  // 如果页面已经加载完成，立即检查
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLinksPage);
+  } else {
+    initLinksPage();
+  }
+  
+})();
+</script>
 
 </body>
 </html>
