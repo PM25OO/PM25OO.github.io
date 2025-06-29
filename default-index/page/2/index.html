@@ -120,13 +120,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,7 +160,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://pm25oo.github.io/2024/12/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://pm25oo.github.io/2025/06/28/20250628/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -178,7 +178,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/29/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+          <a href="/2025/06/28/20250628/" class="post-title-link" itemprop="url"><b>渗透入门</b></a>
         </h2>
 
         <div class="post-meta-container">
@@ -189,14 +189,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-12-29 17:44:15" itemprop="dateCreated datePublished" datetime="2024-12-29T17:44:15+08:00">2024-12-29</time>
+      <time title="创建时间：2025-06-28 22:42:35" itemprop="dateCreated datePublished" datetime="2025-06-28T22:42:35+08:00">2025-06-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 17:54:43" itemprop="dateModified" datetime="2025-03-26T17:54:43+08:00">2025-03-26</time>
+      <time title="修改时间：2025-06-30 00:02:04" itemprop="dateModified" datetime="2025-06-30T00:02:04+08:00">2025-06-30</time>
     </span>
 
   
@@ -209,21 +209,48 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Welcome-to-Hexo"><a href="#Welcome-to-Hexo" class="headerlink" title="Welcome to Hexo!"></a>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>!</h1><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <link rel="stylesheet" href="/css/glass-background.css">
 
-<p>This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<div class="glass-container">
+<div class="glass-content">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<ul>
+<li>环境：<code>Kali Linux</code></li>
+</ul>
+<hr>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><h3 id="fscan"><a href="#fscan" class="headerlink" title="fscan"></a><code>fscan</code></h3><p>一款由中国安全社区广泛使用的内网资产探测工具，主要用于信息收集与资产梳理，特别适合渗透测试和红队行动中使用。它的核心功能是高效、快速地扫描主机存活、端口开放、服务识别、漏洞探测等。</p>
+<ul>
+<li><code>-h [HOST]</code> 指定扫描地址</li>
+<li><code>-p [PORT]</code> 指定端口</li>
+<li><code>-np</code> 不进行端口扫描</li>
+<li><code>-nobr</code> 不进行弱口令爆破</li>
+<li><code>-nopoc</code> 不执行已知漏洞的POC探测</li>
+</ul>
+<h3 id="dirsearch-py"><a href="#dirsearch-py" class="headerlink" title="dirsearch.py"></a><code>dirsearch.py</code></h3><p>一款<a target="_blank" rel="noopener" href="https://github.com/maurosoria/dirsearch">Web路径发现工具</a></p>
+<ul>
+<li><code>-u [URL]</code> 要扫描的地址</li>
+<li><code>-x [CODE],[CODE]...</code> 忽略返回特定响应码的结果</li>
+</ul>
+<hr>
+<h2 id="综合渗透"><a href="#综合渗透" class="headerlink" title="综合渗透"></a>综合渗透</h2><h3 id="msf"><a href="#msf" class="headerlink" title="msf"></a><code>msf</code></h3><p>一个开源的渗透测试框架，用于利用（Exploit）系统漏洞，创建和管理后门（Payload），扫描和验证漏洞，搭建监听器（如 Meterpreter），集成多种攻击模块</p>
+<ul>
+<li><code>msfvenom</code> 生成payload</li>
+<li><code>msfconsole</code> 主控制台</li>
+</ul>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>chmod +x [file]</code></td>
+<td>赋予<code>file</code>可执行权限</td>
+</tr>
+</tbody></table>
+</div>
+</div>
 
       
     </div>
@@ -243,7 +270,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/default-index/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/default-index/">1</a><span class="page-number current">2</span><a class="page-number" href="/default-index/page/3/">3</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/default-index/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/default-index/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/default-index/">1</a><span class="page-number current">2</span><a class="page-number" href="/default-index/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/default-index/page/5/">5</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/default-index/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -284,289 +311,288 @@ let fadeInterval;
 
 <style>
 #floating-player {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 200px; /* 缩小宽度，适应无标题设计 */
-  height: auto;
-  background: rgba(30, 30, 30, 0.6); /* 半透明黑色背景 */
-  color: #e0e0e0; /* 浅灰白色文字 */
-  border-radius: 16px; /* 圆角方形 */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
-  padding: 16px;
-  z-index: 9999;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
-}
-
-/* 删除 title 相关样式 */
-
-#floating-player .controls {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#floating-player button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #fff; /* 现代纯白色 */
-  transition: transform 0.2s, color 0.3s;
-}
-
-#floating-player button:hover {
-  transform: scale(1.2);
-  color: #ddd; /* 悬停时浅灰色 */
-}
-
-#floating-player svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor; /* 使用按钮颜色 */
-}
-
-#floating-player input[type="range"] {
-  width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  outline: none;
-  -webkit-appearance: none;
-  background: linear-gradient(
-    to right,
-    #00bcd4 0%,
-    #00bcd4 var(--progress, 0%),
-    #333 var(--progress, 0%),
-    #333 100%
-  );
-  cursor: default;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 隐藏滑块 */
-#floating-player input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0;
-  height: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  cursor: default;
-}
-
-#floating-player input[type="range"]::-moz-range-thumb {
-  width: 0;
-  height: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  cursor: default;
-}
-
-#play-pause-button {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  padding: 0;
-}
-
-#play-pause-button .icon {
-  position: absolute;
-  top: 0; left: 0;
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-  transition: opacity 0.3s ease;
-}
-
-#play-pause-button .play-icon {
-  opacity: 1;
-}
-
-#play-pause-button .pause-icon {
-  opacity: 0;
-}
-
-#play-pause-button.playing .play-icon {
-  opacity: 0;
-}
-
-#play-pause-button.playing .pause-icon {
-  opacity: 1;
-}
-
-/* 折叠时播放器样式 */
-#floating-player.collapsed {
-  width: 48px;
-  height: 48px;
-  min-height: 48px;
-  padding: 0;
-  border-radius: 50%;
-  background: rgba(30, 30, 30, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  gap: 0;
-}
-
-/* 折叠状态下完全隐藏所有内容 */
-#floating-player.collapsed .controls,
-#floating-player.collapsed input[type="range"],
-#floating-player.collapsed audio {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: scale(0);
-}
-
-/* 折叠状态下只显示播放按钮 */
-#floating-player.collapsed .controls {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-}
-
-#floating-player.collapsed #play-pause-button {
-  opacity: 1;
-  transform: scale(1);
-  position: static;
-}
-
-#floating-player.collapsed .control-btn:not(#play-pause-button) {
-  opacity: 0;
-  transform: scale(0);
-  pointer-events: none;
-}
-
-#floating-player audio {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* 播放列表样式 */
-#playlist-container {
-  position: fixed;
-  bottom: 120px; /* 增加与播放器的间距 */
-  right: 20px;
-  width: 200px; /* 与播放器宽度一致 */
-  height: 200px;
-  background: rgba(30, 30, 30, 0.6);
-  color: #e0e0e0;
-  border-radius: 16px; /* 与播放器圆角一致 */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
-  padding: 16px;
-  z-index: 9998;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
-  /* 默认隐藏 */
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-}
-
-/* 播放列表显示状态 */
-#playlist-container.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-#playlist-container .playlist-content {
-  height: 100%; /* 使用全部高度 */
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
-/* 自定义滚动条 */
-#playlist-container .playlist-content::-webkit-scrollbar {
-  width: 4px;
-}
-
-#playlist-container .playlist-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-
-#playlist-container .playlist-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 188, 212, 0.6);
-  border-radius: 2px;
-}
-
-#playlist-container .playlist-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 188, 212, 0.8);
-}
-
-.playlist-item {
-  padding: 8px 12px;
-  margin-bottom: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-left: 3px solid transparent;
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.playlist-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(4px);
-}
-
-.playlist-item.active {
-  background: rgba(0, 188, 212, 0.2);
-  border-left-color: #00bcd4;
-  color: #fff;
-}
-
-.playlist-item.active::before {
-  content: "♪ ";
-  color: #00bcd4;
-}
-
-@media (max-width: 480px) {
-  #floating-player {
-    width: 90%;
-    right: 5%;
-    bottom: 10px;
-    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 200px; /* 缩小宽度，适应无标题设计 */
+    height: auto;
+    background: rgba(30, 30, 30, 0.6); /* 半透明黑色背景 */
+    color: #e0e0e0; /* 浅灰白色文字 */
+    border-radius: 16px; /* 圆角方形 */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+    padding: 16px;
+    z-index: 9999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
   }
   
-  #playlist-container {
-    width: 90%;
-    right: 5%;
-    bottom: 100px; /* 在移动端也增加间距 */
+  /* 删除 title 相关样式 */
+  
+  #floating-player .controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
   }
-}
-
-/* 其他现有样式保持不变 */
+  
+  #floating-player button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* 现代纯白色 */
+    transition: transform 0.2s, color 0.3s;
+  }
+  
+  #floating-player button:hover {
+    transform: scale(1.2);
+    color: #ddd; /* 悬停时浅灰色 */
+  }
+  
+  #floating-player svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* 使用按钮颜色 */
+  }
+  
+  #floating-player input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(
+      to right,
+      #00bcd4 0%,
+      #00bcd4 var(--progress, 0%),
+      #333 var(--progress, 0%),
+      #333 100%
+    );
+    cursor: default;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* 隐藏滑块 */
+  #floating-player input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+  }
+  
+  #floating-player input[type="range"]::-moz-range-thumb {
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+  }
+  
+  #play-pause-button {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 0;
+  }
+  
+  #play-pause-button .icon {
+    position: absolute;
+    top: 0; left: 0;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: opacity 0.3s ease;
+  }
+  
+  #play-pause-button .play-icon {
+    opacity: 1;
+  }
+  
+  #play-pause-button .pause-icon {
+    opacity: 0;
+  }
+  
+  #play-pause-button.playing .play-icon {
+    opacity: 0;
+  }
+  
+  #play-pause-button.playing .pause-icon {
+    opacity: 1;
+  }
+  
+  /* 折叠时播放器样式 */
+  #floating-player.collapsed {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(30, 30, 30, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0;
+  }
+  
+  /* 折叠状态下完全隐藏所有内容 */
+  #floating-player.collapsed .controls,
+  #floating-player.collapsed input[type="range"],
+  #floating-player.collapsed audio {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0);
+  }
+  
+  /* 折叠状态下只显示播放按钮 */
+  #floating-player.collapsed .controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+  }
+  
+  #floating-player.collapsed #play-pause-button {
+    opacity: 1;
+    transform: scale(1);
+    position: static;
+  }
+  
+  #floating-player.collapsed .control-btn:not(#play-pause-button) {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+  }
+  
+  #floating-player audio {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* 播放列表样式 */
+  #playlist-container {
+    position: fixed;
+    bottom: 120px; /* 增加与播放器的间距 */
+    right: 20px;
+    width: 200px; /* 与播放器宽度一致 */
+    height: 200px;
+    background: rgba(30, 30, 30, 0.6);
+    color: #e0e0e0;
+    border-radius: 16px; /* 与播放器圆角一致 */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+    padding: 16px;
+    z-index: 9998;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    /* 默认隐藏 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+  
+  /* 播放列表显示状态 */
+  #playlist-container.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  #playlist-container .playlist-content {
+    height: 100%; /* 使用全部高度 */
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  
+  /* 自定义滚动条 */
+  #playlist-container .playlist-content::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  #playlist-container .playlist-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+  
+  #playlist-container .playlist-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 188, 212, 0.6);
+    border-radius: 2px;
+  }
+  
+  #playlist-container .playlist-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 188, 212, 0.8);
+  }
+  
+  .playlist-item {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .playlist-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+  }
+  
+  .playlist-item.active {
+    background: rgba(0, 188, 212, 0.2);
+    border-left-color: #00bcd4;
+    color: #fff;
+  }
+  
+  .playlist-item.active::before {
+    content: "♪ ";
+    color: #00bcd4;
+  }
+  
+  @media (max-width: 480px) {
+    #floating-player {
+      width: 90%;
+      right: 5%;
+      bottom: 10px;
+      padding: 10px;
+    }
+    
+    #playlist-container {
+      width: 90%;
+      right: 5%;
+      bottom: 100px; /* 在移动端也增加间距 */
+    }
+  }
 </style>
 
 <!-- 播放列表 -->

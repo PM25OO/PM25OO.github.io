@@ -125,13 +125,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -395,289 +395,288 @@ let fadeInterval;
 
 <style>
 #floating-player {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 200px; /* 缩小宽度，适应无标题设计 */
-  height: auto;
-  background: rgba(30, 30, 30, 0.6); /* 半透明黑色背景 */
-  color: #e0e0e0; /* 浅灰白色文字 */
-  border-radius: 16px; /* 圆角方形 */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
-  padding: 16px;
-  z-index: 9999;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
-}
-
-/* 删除 title 相关样式 */
-
-#floating-player .controls {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#floating-player button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #fff; /* 现代纯白色 */
-  transition: transform 0.2s, color 0.3s;
-}
-
-#floating-player button:hover {
-  transform: scale(1.2);
-  color: #ddd; /* 悬停时浅灰色 */
-}
-
-#floating-player svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor; /* 使用按钮颜色 */
-}
-
-#floating-player input[type="range"] {
-  width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  outline: none;
-  -webkit-appearance: none;
-  background: linear-gradient(
-    to right,
-    #00bcd4 0%,
-    #00bcd4 var(--progress, 0%),
-    #333 var(--progress, 0%),
-    #333 100%
-  );
-  cursor: default;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 隐藏滑块 */
-#floating-player input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0;
-  height: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  cursor: default;
-}
-
-#floating-player input[type="range"]::-moz-range-thumb {
-  width: 0;
-  height: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  cursor: default;
-}
-
-#play-pause-button {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  padding: 0;
-}
-
-#play-pause-button .icon {
-  position: absolute;
-  top: 0; left: 0;
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-  transition: opacity 0.3s ease;
-}
-
-#play-pause-button .play-icon {
-  opacity: 1;
-}
-
-#play-pause-button .pause-icon {
-  opacity: 0;
-}
-
-#play-pause-button.playing .play-icon {
-  opacity: 0;
-}
-
-#play-pause-button.playing .pause-icon {
-  opacity: 1;
-}
-
-/* 折叠时播放器样式 */
-#floating-player.collapsed {
-  width: 48px;
-  height: 48px;
-  min-height: 48px;
-  padding: 0;
-  border-radius: 50%;
-  background: rgba(30, 30, 30, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  gap: 0;
-}
-
-/* 折叠状态下完全隐藏所有内容 */
-#floating-player.collapsed .controls,
-#floating-player.collapsed input[type="range"],
-#floating-player.collapsed audio {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: scale(0);
-}
-
-/* 折叠状态下只显示播放按钮 */
-#floating-player.collapsed .controls {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-}
-
-#floating-player.collapsed #play-pause-button {
-  opacity: 1;
-  transform: scale(1);
-  position: static;
-}
-
-#floating-player.collapsed .control-btn:not(#play-pause-button) {
-  opacity: 0;
-  transform: scale(0);
-  pointer-events: none;
-}
-
-#floating-player audio {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* 播放列表样式 */
-#playlist-container {
-  position: fixed;
-  bottom: 120px; /* 增加与播放器的间距 */
-  right: 20px;
-  width: 200px; /* 与播放器宽度一致 */
-  height: 200px;
-  background: rgba(30, 30, 30, 0.6);
-  color: #e0e0e0;
-  border-radius: 16px; /* 与播放器圆角一致 */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
-  padding: 16px;
-  z-index: 9998;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
-  /* 默认隐藏 */
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-}
-
-/* 播放列表显示状态 */
-#playlist-container.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-#playlist-container .playlist-content {
-  height: 100%; /* 使用全部高度 */
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
-/* 自定义滚动条 */
-#playlist-container .playlist-content::-webkit-scrollbar {
-  width: 4px;
-}
-
-#playlist-container .playlist-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-
-#playlist-container .playlist-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 188, 212, 0.6);
-  border-radius: 2px;
-}
-
-#playlist-container .playlist-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 188, 212, 0.8);
-}
-
-.playlist-item {
-  padding: 8px 12px;
-  margin-bottom: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-left: 3px solid transparent;
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.playlist-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(4px);
-}
-
-.playlist-item.active {
-  background: rgba(0, 188, 212, 0.2);
-  border-left-color: #00bcd4;
-  color: #fff;
-}
-
-.playlist-item.active::before {
-  content: "♪ ";
-  color: #00bcd4;
-}
-
-@media (max-width: 480px) {
-  #floating-player {
-    width: 90%;
-    right: 5%;
-    bottom: 10px;
-    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 200px; /* 缩小宽度，适应无标题设计 */
+    height: auto;
+    background: rgba(30, 30, 30, 0.6); /* 半透明黑色背景 */
+    color: #e0e0e0; /* 浅灰白色文字 */
+    border-radius: 16px; /* 圆角方形 */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+    padding: 16px;
+    z-index: 9999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
   }
   
-  #playlist-container {
-    width: 90%;
-    right: 5%;
-    bottom: 100px; /* 在移动端也增加间距 */
+  /* 删除 title 相关样式 */
+  
+  #floating-player .controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
   }
-}
-
-/* 其他现有样式保持不变 */
+  
+  #floating-player button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* 现代纯白色 */
+    transition: transform 0.2s, color 0.3s;
+  }
+  
+  #floating-player button:hover {
+    transform: scale(1.2);
+    color: #ddd; /* 悬停时浅灰色 */
+  }
+  
+  #floating-player svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* 使用按钮颜色 */
+  }
+  
+  #floating-player input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(
+      to right,
+      #00bcd4 0%,
+      #00bcd4 var(--progress, 0%),
+      #333 var(--progress, 0%),
+      #333 100%
+    );
+    cursor: default;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* 隐藏滑块 */
+  #floating-player input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+  }
+  
+  #floating-player input[type="range"]::-moz-range-thumb {
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+  }
+  
+  #play-pause-button {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 0;
+  }
+  
+  #play-pause-button .icon {
+    position: absolute;
+    top: 0; left: 0;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: opacity 0.3s ease;
+  }
+  
+  #play-pause-button .play-icon {
+    opacity: 1;
+  }
+  
+  #play-pause-button .pause-icon {
+    opacity: 0;
+  }
+  
+  #play-pause-button.playing .play-icon {
+    opacity: 0;
+  }
+  
+  #play-pause-button.playing .pause-icon {
+    opacity: 1;
+  }
+  
+  /* 折叠时播放器样式 */
+  #floating-player.collapsed {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(30, 30, 30, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0;
+  }
+  
+  /* 折叠状态下完全隐藏所有内容 */
+  #floating-player.collapsed .controls,
+  #floating-player.collapsed input[type="range"],
+  #floating-player.collapsed audio {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0);
+  }
+  
+  /* 折叠状态下只显示播放按钮 */
+  #floating-player.collapsed .controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+  }
+  
+  #floating-player.collapsed #play-pause-button {
+    opacity: 1;
+    transform: scale(1);
+    position: static;
+  }
+  
+  #floating-player.collapsed .control-btn:not(#play-pause-button) {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+  }
+  
+  #floating-player audio {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* 播放列表样式 */
+  #playlist-container {
+    position: fixed;
+    bottom: 120px; /* 增加与播放器的间距 */
+    right: 20px;
+    width: 200px; /* 与播放器宽度一致 */
+    height: 200px;
+    background: rgba(30, 30, 30, 0.6);
+    color: #e0e0e0;
+    border-radius: 16px; /* 与播放器圆角一致 */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+    padding: 16px;
+    z-index: 9998;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    /* 默认隐藏 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+  
+  /* 播放列表显示状态 */
+  #playlist-container.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  #playlist-container .playlist-content {
+    height: 100%; /* 使用全部高度 */
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  
+  /* 自定义滚动条 */
+  #playlist-container .playlist-content::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  #playlist-container .playlist-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+  
+  #playlist-container .playlist-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 188, 212, 0.6);
+    border-radius: 2px;
+  }
+  
+  #playlist-container .playlist-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 188, 212, 0.8);
+  }
+  
+  .playlist-item {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .playlist-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+  }
+  
+  .playlist-item.active {
+    background: rgba(0, 188, 212, 0.2);
+    border-left-color: #00bcd4;
+    color: #fff;
+  }
+  
+  .playlist-item.active::before {
+    content: "♪ ";
+    color: #00bcd4;
+  }
+  
+  @media (max-width: 480px) {
+    #floating-player {
+      width: 90%;
+      right: 5%;
+      bottom: 10px;
+      padding: 10px;
+    }
+    
+    #playlist-container {
+      width: 90%;
+      right: 5%;
+      bottom: 100px; /* 在移动端也增加间距 */
+    }
+  }
 </style>
 
 <!-- 播放列表 -->
