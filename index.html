@@ -19,16 +19,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content=".welcome-container {   min-height: 60vh;   display: flex;   flex-direction: column;   align-items: center;   justify-content: center;   text-align: center;   padding: 2rem;   background: linear-gradi">
+    <meta name="description" content="@font-face {   font-family: &#39;SpotifyMix-Bold&#39;;   src: url(&#39;&#x2F;fonts&#x2F;SpotifyMix-Bold.woff2&#39;) format(&#39;woff2&#39;);   font-weight: normal;   font-style: normal;   font-display: swap; } @font-face {   font-fam">
 <meta property="og:type" content="website">
 <meta property="og:title" content="PM25OO&#39;s Blog">
 <meta property="og:url" content="https://pm25oo.github.io/index.html">
 <meta property="og:site_name" content="PM25OO&#39;s Blog">
-<meta property="og:description" content=".welcome-container {   min-height: 60vh;   display: flex;   flex-direction: column;   align-items: center;   justify-content: center;   text-align: center;   padding: 2rem;   background: linear-gradi">
+<meta property="og:description" content="@font-face {   font-family: &#39;SpotifyMix-Bold&#39;;   src: url(&#39;&#x2F;fonts&#x2F;SpotifyMix-Bold.woff2&#39;) format(&#39;woff2&#39;);   font-weight: normal;   font-style: normal;   font-display: swap; } @font-face {   font-fam">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/PM25OO/PM25OO/output/github-contribution-grid-snake.svg">
-<meta property="article:published_time" content="2025-06-22T09:35:50.232Z">
-<meta property="article:modified_time" content="2025-06-22T09:35:50.232Z">
+<meta property="article:published_time" content="2025-06-30T04:44:59.725Z">
+<meta property="article:modified_time" content="2025-06-30T04:44:59.725Z">
 <meta property="article:author" content="PM25OO">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/PM25OO/PM25OO/output/github-contribution-grid-snake.svg">
@@ -178,6 +178,21 @@
       
       <div class="post-body">
           <style>
+@font-face {
+  font-family: 'SpotifyMix-Bold';
+  src: url('/fonts/SpotifyMix-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SpotifyMix-Regular';
+  src: url('/fonts/SpotifyMix-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .welcome-container {
   min-height: 60vh;
   display: flex;
@@ -186,11 +201,15 @@
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   margin: 2rem 0;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-container::before {
@@ -200,7 +219,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+  background: linear-gradient(45deg, transparent, rgba(74, 144, 226, 0.05), transparent);
   animation: rotate 20s linear infinite;
   z-index: -1;
 }
@@ -212,6 +231,7 @@
 
 .main-title {
   font-size: 3.5rem;
+  font-family: 'SpotifyMix-Bold', 'Arial', 'Microsoft YaHei', sans-serif;
   font-weight: 800;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
@@ -221,16 +241,31 @@
   animation: fadeInUp 1s ease-out;
 }
 
+.main-title u {
+  text-decoration: underline;
+  text-decoration-color: #667eea;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 2rem;
+  font-family: 'SpotifyMix-Bold', 'Arial', 'Microsoft YaHei', sans-serif;
   color: #666;
   margin-bottom: 2rem;
   animation: fadeInUp 1s ease-out 0.3s both;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .intro-text {
   font-size: 1.1rem;
   line-height: 1.8;
+  font-family: 'SpotifyMix-Regular', 'Arial', 'Microsoft YaHei', sans-serif;
   color: #555;
   max-width: 600px;
   margin-bottom: 3rem;
@@ -458,6 +493,18 @@
   from, to { border-color: transparent; }
   50% { border-color: #667eea; }
 }
+
+.latest-updates {
+  text-align: center;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
 </style>
 
 <div class="welcome-container">
@@ -467,8 +514,9 @@
     <div class="floating-circle circle-3"></div>
   </div>
   
-  <h1 class="main-title">🎉 Welcome to MyBlog</h1>
-  <p class="subtitle typing-effect">PRACTICE MAKES PERFECT</p>
+  <h1 class="main-title">🎉 Welcome to My<u>Blog.</u></h1>
+  <p class="subtitle typing-effect">Don't waste your life respecting the rulers</p>
+  <p class="subtitle typing-effect">There is no time, you need to run</p>
   
   <div class="intro-text">
     <p>Welcome to <strong>PM25OO</strong>'s personal blog space, a digital garden focused on technology sharing and innovative thinking.</p>
@@ -491,7 +539,7 @@
   </div>
 </div>
 
-<div style="text-align: center; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05)); border-radius: 15px;">
+<div class="latest-updates">
   <h3 style="color: #667eea; margin-bottom: 1rem;">🌟 最新动态</h3>
   <p style="color: #666; font-size: 1.1rem; line-height: 1.6;">
     持续更新中... 关注我的 GitHub 获取最新项目动态
