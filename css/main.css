@@ -1291,7 +1291,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #2eac17;
+  background: #413c88;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2668,4 +2668,22 @@ header.header {
 }
 .sub-menu .menu-item {
   display: inline-block;
+}
+@font-face {
+  font-family: 'HarmonyOS_Sans_SC_Regular';
+  src: url("/fonts/HarmonyOS_Sans_SC_Regular.woff2") format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SpotifyMix-Regular';
+  src: url("/fonts/SpotifyMix-Regular.woff2") format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+body,
+html {
+  font-family: 'SpotifyMix-Regular', 'HarmonyOS_Sans_SC_Regular', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
