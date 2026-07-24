@@ -20,22 +20,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="PM25OO&#39;s Blog">
-<meta property="og:url" content="https://pm25oo.top/archives/2026/02/index.html">
+    <meta name="description" content="openstack概述 是一套自动化配置，调度，管理服务器&#x2F;虚拟机资源的系统，通过各种组件形成的 Infrastructure as a Service（IaaS），  OpenStack &#x3D; 自己搭建 AWS（或阿里云、腾讯云）的软件。  12345678910           OpenStack     ┌──────────────────┐     │">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;b&gt;openstack与docker&lt;&#x2F;b&gt;">
+<meta property="og:url" content="https://pm25oo.top/2026/07/20/20260720/index.html">
 <meta property="og:site_name" content="PM25OO&#39;s Blog">
+<meta property="og:description" content="openstack概述 是一套自动化配置，调度，管理服务器&#x2F;虚拟机资源的系统，通过各种组件形成的 Infrastructure as a Service（IaaS），  OpenStack &#x3D; 自己搭建 AWS（或阿里云、腾讯云）的软件。  12345678910           OpenStack     ┌──────────────────┐     │">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_10-22-30.png">
+<meta property="og:image" content="https://www.openstack.org/static/000588f8b89d94da80eba6101f72ff7a/openstack-map-v20240401.png">
+<meta property="og:image" content="https://www.nemunai.re/post/unveiling-whiteout-files/overlayfs.png">
+<meta property="article:published_time" content="2026-07-20T14:42:35.000Z">
+<meta property="article:modified_time" content="2026-07-24T02:24:23.548Z">
 <meta property="article:author" content="PM25OO">
+<meta property="article:tag" content="openstack">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="云平台">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_10-22-30.png">
 
 
-<link rel="canonical" href="https://pm25oo.top/archives/2026/02/">
+<link rel="canonical" href="https://pm25oo.top/2026/07/20/20260720/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2026/02/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pm25oo.top/2026/07/20/20260720/","path":"2026/07/20/20260720/","title":"\u003cb>openstack与docker\u003c/b>"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | PM25OO's Blog</title>
+<title><b>openstack与docker</b> | PM25OO's Blog</title>
   
 
 
@@ -68,7 +79,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">PM25OO's Blog</h1>
+      <p class="site-title">PM25OO's Blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -121,7 +132,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -134,6 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#openstack%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">openstack概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-1-compute"><span class="nav-number">1.1.</span> <span class="nav-text">layer 1 - compute</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nova"><span class="nav-number">1.1.1.</span> <span class="nav-text">Nova</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zun"><span class="nav-number">1.1.2.</span> <span class="nav-text">Zun</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-2-storage"><span class="nav-number">1.2.</span> <span class="nav-text">layer 2 - storage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift"><span class="nav-number">1.2.1.</span> <span class="nav-text">Swift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cinder"><span class="nav-number">1.2.2.</span> <span class="nav-text">Cinder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manila"><span class="nav-number">1.2.3.</span> <span class="nav-text">Manila</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-3-networking"><span class="nav-number">1.3.</span> <span class="nav-text">layer 3 - networking</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neutron"><span class="nav-number">1.3.1.</span> <span class="nav-text">Neutron</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Octavia"><span class="nav-number">1.3.2.</span> <span class="nav-text">Octavia</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Designate"><span class="nav-number">1.3.3.</span> <span class="nav-text">Designate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-4-shared-services"><span class="nav-number">1.4.</span> <span class="nav-text">layer 4 - shared services</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Keystone"><span class="nav-number">1.4.1.</span> <span class="nav-text">Keystone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Glance"><span class="nav-number">1.4.2.</span> <span class="nav-text">Glance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Placement"><span class="nav-number">1.4.3.</span> <span class="nav-text">Placement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Barbican"><span class="nav-number">1.4.4.</span> <span class="nav-text">Barbican</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-5-web"><span class="nav-number">1.5.</span> <span class="nav-text">layer 5 - web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Horizon"><span class="nav-number">1.5.1.</span> <span class="nav-text">Horizon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#others"><span class="nav-number">1.6.</span> <span class="nav-text">others</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">docker实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%87%8D%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">docker文件系统（重点</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,50 +190,237 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 8 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2026<span class="collection-year-count">3</span></span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pm25oo.top/2026/07/20/20260720/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="PM25OO">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PM25OO's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="<b>openstack与docker</b> | PM25OO's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          <b>openstack与docker</b>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-07-20 22:42:35" itemprop="dateCreated datePublished" datetime="2026-07-20T22:42:35+08:00">2026-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-07-24 10:24:23" itemprop="dateModified" datetime="2026-07-24T10:24:23+08:00">2026-07-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" href="/css/glass-background.css">
+
+<div class="glass-container">
+<div class="glass-content">
+
+<p><img data-src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_10-22-30.png" alt="cover"></p>
+<h1 id="openstack概述"><a href="#openstack概述" class="headerlink" title="openstack概述"></a>openstack概述</h1><p><img data-src="https://www.openstack.org/static/000588f8b89d94da80eba6101f72ff7a/openstack-map-v20240401.png" alt="OpenStack Cloud landscape map"></p>
+<p>是一套自动化配置，调度，管理服务器&#x2F;虚拟机资源的系统，通过各种组件形成的 <code>Infrastructure as a Service（IaaS）</code>，</p>
+<blockquote>
+<p>OpenStack &#x3D; 自己搭建 AWS（或阿里云、腾讯云）的软件。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">           OpenStack</span><br><span class="line"></span><br><span class="line">     ┌──────────────────┐</span><br><span class="line">     │     Dashboard    │</span><br><span class="line">     │       API        │</span><br><span class="line">     └──────────────────┘</span><br><span class="line"></span><br><span class="line">         ↓↓↓↓↓↓↓↓↓↓↓</span><br><span class="line"></span><br><span class="line">服务器A   服务器B   服务器C</span><br></pre></td></tr></table></figure>
+
+<p>本身不负责虚拟化技术相关，<strong>not Vmware</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">            OpenStack</span><br><span class="line">                 │</span><br><span class="line">   ┌─────────────┼──────────────┐</span><br><span class="line">   │             │              │</span><br><span class="line">KVM/QEMU      Ceph          Linux Network</span><br></pre></td></tr></table></figure>
+
+<h2 id="layer-1-compute"><a href="#layer-1-compute" class="headerlink" title="layer 1 - compute"></a>layer 1 - compute</h2><h3 id="Nova"><a href="#Nova" class="headerlink" title="Nova"></a>Nova</h3><p><strong>云主机管理中心</strong>。负责创建删除VM，开关机，调度，分配计算资源</p>
+<h3 id="Zun"><a href="#Zun" class="headerlink" title="Zun"></a>Zun</h3><p>启动和管理基于不同容器技术的容器</p>
+<h2 id="layer-2-storage"><a href="#layer-2-storage" class="headerlink" title="layer 2 - storage"></a>layer 2 - storage</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/nas/product-overview/comparison-of-nas-oss-and-ebs">NAS、OSS和EBS的区别-文件存储NAS(NAS)-阿里云帮助中心</a></p>
+</blockquote>
+<h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><p><strong>对象存储</strong></p>
+<h3 id="Cinder"><a href="#Cinder" class="headerlink" title="Cinder"></a>Cinder</h3><p><strong>块存储</strong></p>
+<h3 id="Manila"><a href="#Manila" class="headerlink" title="Manila"></a>Manila</h3><p><strong>共享文件系统</strong></p>
+<h2 id="layer-3-networking"><a href="#layer-3-networking" class="headerlink" title="layer 3 - networking"></a>layer 3 - networking</h2><h3 id="Neutron"><a href="#Neutron" class="headerlink" title="Neutron"></a>Neutron</h3><p>负责虚拟交换机，VLAN，DHCP，Router</p>
+<h3 id="Octavia"><a href="#Octavia" class="headerlink" title="Octavia"></a>Octavia</h3><p>负载均衡。</p>
+<h3 id="Designate"><a href="#Designate" class="headerlink" title="Designate"></a>Designate</h3><p>DNS</p>
+<h2 id="layer-4-shared-services"><a href="#layer-4-shared-services" class="headerlink" title="layer 4 - shared services"></a>layer 4 - shared services</h2><h3 id="Keystone"><a href="#Keystone" class="headerlink" title="Keystone"></a>Keystone</h3><p>身份认证，OAuth服务组件</p>
+<h3 id="Glance"><a href="#Glance" class="headerlink" title="Glance"></a>Glance</h3><p>发现、注册和检索虚拟机镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxx/kolla/glance-api:bc-2024.1-ubuntu  #使用kolla部署情况下的相关镜像</span><br><span class="line"></span><br><span class="line">filesystem_store_datadir = /var/lib/glance/images/  #镜像文件位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="Placement"><a href="#Placement" class="headerlink" title="Placement"></a>Placement</h3><p>资源调度。跟踪云资源库存和使用情况，以帮助其他服务有效管理和分配其资源。</p>
+<h3 id="Barbican"><a href="#Barbican" class="headerlink" title="Barbican"></a>Barbican</h3><p>密钥管理</p>
+<h2 id="layer-5-web"><a href="#layer-5-web" class="headerlink" title="layer 5 - web"></a>layer 5 - web</h2><h3 id="Horizon"><a href="#Horizon" class="headerlink" title="Horizon"></a>Horizon</h3><p>浏览器控制台</p>
+<h2 id="others"><a href="#others" class="headerlink" title="others"></a>others</h2><ul>
+<li>项目与角色</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OpenStack Cloud</span><br><span class="line">│</span><br><span class="line">├── 项目（Project/Tenant）</span><br><span class="line">│</span><br><span class="line">└── 角色（Role）</span><br><span class="line">      ├── member</span><br><span class="line">      └── admin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数据盘的选择</li>
+</ul>
+<p><strong>如果只是测试、临时开发环境</strong>：直接选择合适的 <code>...disk</code> Flavor，例如 <code>1c1g30gdisk</code> 或 <code>2c2g50gdisk</code>，不创建 Volume，操作简单。</p>
+<p><strong>如果是需要长期保留数据、数据库、重要业务环境</strong>：优先选择 <strong>Disk&#x3D;0</strong> 的 Flavor（如 <code>1c1g</code>、<code>1c2g</code>），然后勾选 <strong>Create New Volume</strong>，创建足够大的系统卷。这种方式更符合现代 OpenStack 的存储设计，也便于后续快照、备份、迁移和扩容。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.openstack.org/kolla-ansible/latest/user/quickstart.html">Kolla-Ansible - openstack部署工具</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Kolla-Ansible</span><br><span class="line">│</span><br><span class="line">├── 部署 keystone 容器</span><br><span class="line">├── 部署 nova 容器</span><br><span class="line">├── 部署 glance 容器</span><br><span class="line">├── 部署 horizon 容器</span><br><span class="line">└── 部署 kolla_toolbox 容器</span><br><span class="line">            │</span><br><span class="line">            ├── python-openstackclient (OSC)</span><br><span class="line">            ├── ansible</span><br><span class="line">            ├── mysql client</span><br><span class="line">            ├── openstacksdk</span><br><span class="line">            └── 各种运维工具</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在使用 openstack 的CLI工具前，因为 nova 节点的通信方式基于 http 请求，因此要配置相关环境变量</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export OS_PROJECT_ID=06923e90488045daa74a41919c6e6501 \</span><br><span class="line">export OS_PROJECT_NAME=&quot;admin&quot; \</span><br><span class="line">export OS_USER_DOMAIN_NAME=&quot;Default&quot; \</span><br><span class="line">export OS_USERNAME=&quot;admin&quot; \</span><br><span class="line">export OS_PASSWORD=&quot;password&quot; \</span><br><span class="line">export OS_AUTH_URL=http://162.162.1.100:5000 \</span><br><span class="line">export OS_REGION_NAME=&quot;RegionOne&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化实例时，可以通过自定义实例数据，借助 cloud-init 初始化密码、扩容根分区、设置主机名、注入公钥、执行自定义脚本等等</li>
+</ul>
+<blockquote>
+<ul>
+<li>metadata：一系列字典格式的元数据，用作模板渲染、模块运行等等。</li>
+<li>userdata：启动实例时用户能够指定的数据（单实例数据）</li>
+<li>vendordata：云基座传入的数据（全局数据）</li>
+</ul>
+</blockquote>
+<p>常见 userdata 设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#cloud-config</span><br><span class="line">users:</span><br><span class="line">  - default</span><br><span class="line">  - name: root</span><br><span class="line">    ssh_pwauth: True</span><br><span class="line">disable_root: 0</span><br><span class="line">ssh_pwauth: 1</span><br><span class="line">chpasswd:</span><br><span class="line">  list: |</span><br><span class="line">    root:passwd</span><br><span class="line">  expire: False</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><blockquote>
+<p>Docker 是一种基于 Linux 内核能力实现的操作系统级虚拟化（OS-level Virtualization）技术，它将应用及其运行环境封装成一个标准化的容器（Container），实现”一次构建，到处运行”。</p>
+</blockquote>
+<p>没有虚拟硬件，没有虚拟BIOS，没有Guest OS，没有Kernel，而是<strong>多个进程共享宿主机Linux内核。</strong></p>
+<p>只有<strong>程序 + 依赖</strong></p>
+<h2 id="docker实现原理"><a href="#docker实现原理" class="headerlink" title="docker实现原理"></a>docker实现原理</h2><ul>
+<li>进程隔离</li>
+</ul>
+<p>一个容器进程本质上是一个<strong>运行在沙盒中的隔离进程</strong>，由Linux系统本身负责隔离（基于 <strong>Namespace</strong> 和 <strong>Cgroup</strong> 机制实现），Docker只是提供了一系列工具，帮助我们设置好隔离环境后，启动这个进程。</p>
+<ul>
+<li>文件系统隔离</li>
+</ul>
+<p>利用Linux的 <strong>mount</strong> 机制，给每个隔离进程挂载了一个虚拟的文件系统，再从 <strong>Dockerfile</strong> 构建</p>
+<ul>
+<li>网络协议栈隔离</li>
+</ul>
+<p>因为默认情况下隔离网络，所以要将进程端口号映射到宿主机后，才能通过宿主机访问隔离进程</p>
+<p>不同的容器间需要通信时，直接指定IP并不是一个好的方式，要使用 <strong>docker compose</strong> 将服务运行在<strong>同一网络命名空间</strong>里</p>
+<h2 id="docker文件系统（重点"><a href="#docker文件系统（重点" class="headerlink" title="docker文件系统（重点"></a>docker文件系统（重点</h2><ul>
+<li>整个目录树，就是一个<strong>文件系统</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/</span><br><span class="line">├── bin/</span><br><span class="line">├── etc/</span><br><span class="line">├── home/</span><br><span class="line">├── lib/</span><br><span class="line">├── proc/</span><br><span class="line">├── sys/</span><br><span class="line">├── usr/</span><br><span class="line">├── var/</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>docker 通过<strong>一组 layer 的引用</strong>构建 image</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Image1</span><br><span class="line"></span><br><span class="line">Layer1 (Ubuntu)</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line"></span><br><span class="line">Image2</span><br><span class="line"></span><br><span class="line">Layer1 (Ubuntu)</span><br><span class="line">Layer2 (Python)</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line"></span><br><span class="line">Image3</span><br><span class="line"></span><br><span class="line">Layer1 (Ubuntu)</span><br><span class="line">Layer2 (Python)</span><br><span class="line">Layer3 (flask)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>layer 不是一个压缩包或完整文件系统，而是一个<strong>文件系统增量（Filesystem Diff）</strong>，记录相对于上一层：增加，删除，修改了什么</p>
+</li>
+<li><p>layer 全是<strong>只读</strong>属性，只有 Writable Layer 可对最上面一层layer可写</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Container</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Writable Layer</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Layer3</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Layer2</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Layer1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Docker 在 Linux 上通常使用 <strong>OverlayFS</strong> 作为存储驱动，通过不断 mount，merge layers</li>
+</ul>
+<p><img data-src="https://www.nemunai.re/post/unveiling-whiteout-files/overlayfs.png" alt="File access by layer"></p>
+<ul>
+<li><p><strong>修改</strong>文件时： Copy-on-Write（写时复制）机制， copy layer 并在上层创建 writable layer</p>
+</li>
+<li><p><strong>删除</strong>文件时：在上层创建 whiteout file （一般做法：<code>.wh.&lt;filename&gt;</code>），以指示该文件不应再显示在合并层中</p>
+</li>
+<li><p><strong>dockerfile</strong></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:24.04                   // 指定基础镜像</span><br><span class="line"></span><br><span class="line">RUN apt update                      // 构建镜像时执行命令 (生成新的 layer)</span><br><span class="line"></span><br><span class="line">RUN apt install -y python3</span><br><span class="line"></span><br><span class="line">COPY app.py /app/                   // 复制本地文件</span><br><span class="line"></span><br><span class="line">CMD [&quot;python3&quot;, &quot;/app/app.py&quot;]      // 容器启动时执行命令</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>docker commit</strong></li>
+</ul>
+<p>容器创建时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      Container</span><br><span class="line"></span><br><span class="line">Writable Layer   ← 可写</span><br><span class="line">-------------------------</span><br><span class="line">Layer3           ← 只读</span><br><span class="line">Layer2</span><br><span class="line">Layer1</span><br></pre></td></tr></table></figure>
+
+<p>执行 commit 后，docker 会进行 Filesystem Diff，新增 layer 并更新 history，并创建一个新 image</p>
+<ul>
+<li>假设有一个b镜像（基础镜像a），c镜像（基础镜像也是a），使用go，把c，a的差异文件提取出来，并支持docker load直接导入差异文件 <a target="_blank" rel="noopener" href="https://github.com/zn-chen/dockerdiff">zn-chen&#x2F;dockerdiff</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">DiffExport</span><br><span class="line">    |</span><br><span class="line">    |</span><br><span class="line">    +---- inspect image1</span><br><span class="line">    |</span><br><span class="line">    +---- inspect image2</span><br><span class="line">    |</span><br><span class="line">    +---- 找共同layer</span><br><span class="line">    |</span><br><span class="line">    +---- ImageExport(image2)</span><br><span class="line">    |          |</span><br><span class="line">    |          v</span><br><span class="line">    |       image2目录</span><br><span class="line">    |</span><br><span class="line">    +---- 修改目录中的layer</span><br><span class="line">    |</span><br><span class="line">    +---- ImageTar()</span><br><span class="line">               |</span><br><span class="line">               v</span><br><span class="line">            输出tar</span><br></pre></td></tr></table></figure>
+
+</div>
+</div>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-02-10T22:42:35+08:00"
-              content="2026-02-10">
-          02-10
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/02/10/20250628/" itemprop="url">
-            <span itemprop="name"><b>渗透入门</b></span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/openstack/" rel="tag"># openstack</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" rel="tag"># 云平台</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/10/20260510/" rel="prev" title="<b>VPN相关研究</b>">
+                  <i class="fa fa-angle-left"></i> <b>VPN相关研究</b>
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
 
-    </div>
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
   </div>
   
   
-  
-
 </div>
   </main>
 
