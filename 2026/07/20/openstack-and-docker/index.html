@@ -20,30 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="VPN攻防技术迭代一点想法：现在的各种“翻墙工具”几乎都是为了对抗GFW而生的，这是一场不断迭代的攻防游戏。因此，为了更好的研究各类“翻墙工具”，我们有必要调研各种现代VPN技术，在已有相关研究的基础上开展研发  ⚠️ 安全研究声明  目的： 本文仅用于网络安全技术交流及企业内部流量审计研究。 隐私： 实验所用 Pcap 数据已进行脱敏处理，不包含敏感个人信息。 责任： 严禁利用文中所">
-<meta property="og:type" content="article">
-<meta property="og:title" content="&lt;b&gt;VPN相关研究&lt;&#x2F;b&gt;">
-<meta property="og:url" content="https://pm25oo.top/2026/05/10/20260510/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="openstack与docker">
+<meta property="og:url" content="https://pm25oo.top/2026/07/20/openstack-and-docker/index.html">
 <meta property="og:site_name" content="PM25OO&#39;s Blog">
-<meta property="og:description" content="VPN攻防技术迭代一点想法：现在的各种“翻墙工具”几乎都是为了对抗GFW而生的，这是一场不断迭代的攻防游戏。因此，为了更好的研究各类“翻墙工具”，我们有必要调研各种现代VPN技术，在已有相关研究的基础上开展研发  ⚠️ 安全研究声明  目的： 本文仅用于网络安全技术交流及企业内部流量审计研究。 隐私： 实验所用 Pcap 数据已进行脱敏处理，不包含敏感个人信息。 责任： 严禁利用文中所">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_14-43-45.png">
-<meta property="article:published_time" content="2026-05-10T10:42:25.000Z">
-<meta property="article:modified_time" content="2026-07-24T07:07:48.750Z">
+<meta property="og:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_10-22-30.png">
+<meta property="og:image" content="https://www.openstack.org/static/000588f8b89d94da80eba6101f72ff7a/openstack-map-v20240401.png">
+<meta property="og:image" content="https://www.nemunai.re/post/unveiling-whiteout-files/overlayfs.png">
+<meta property="article:published_time" content="2026-07-20T14:42:35.000Z">
+<meta property="article:modified_time" content="2026-07-27T08:53:42.332Z">
 <meta property="article:author" content="PM25OO">
-<meta property="article:tag" content="网络安全">
-<meta property="article:tag" content="VPN">
+<meta property="article:tag" content="openstack">
+<meta property="article:tag" content="云平台">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_14-43-45.png">
+<meta name="twitter:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_10-22-30.png">
 
 
-<link rel="canonical" href="https://pm25oo.top/2026/05/10/20260510/">
+<link rel="canonical" href="https://pm25oo.top/2026/07/20/openstack-and-docker/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pm25oo.top/2026/05/10/20260510/","path":"2026/05/10/20260510/","title":"\u003cb>VPN相关研究\u003c/b>"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pm25oo.top/2026/07/20/openstack-and-docker/","path":"2026/07/20/openstack-and-docker/","title":"openstack与docker"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title><b>VPN相关研究</b> | PM25OO's Blog</title>
+<title>openstack与docker | PM25OO's Blog</title>
   
 
 
@@ -142,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VPN%E6%94%BB%E9%98%B2%E6%8A%80%E6%9C%AF%E8%BF%AD%E4%BB%A3"><span class="nav-number">1.</span> <span class="nav-text">VPN攻防技术迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.1.</span> <span class="nav-text">加密协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9FVPN%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">传统VPN协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OpenVPN"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">OpenVPN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WireGuard"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">WireGuard</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A9%E6%9C%9F%E6%8A%97%E5%B0%81%E9%94%81%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.1.2.</span> <span class="nav-text">早期抗封锁协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shadowsocks-SS"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Shadowsocks (SS)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E9%9A%90%E5%8C%BF%E5%8D%8F%E8%AE%AE%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">现代隐匿协议（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VMess-V2Ray-%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">VMess (V2Ray 的核心)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trojan"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Trojan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#REALITY%EF%BC%88by-Project-X%EF%BC%89"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">REALITY（by Project X）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hysteria2"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">Hysteria2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AnyTLS"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">AnyTLS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">1.2.</span> <span class="nav-text">代理客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Xray-core-Project-X"><span class="nav-number">1.2.1.</span> <span class="nav-text">Xray-core (Project X)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sing-box"><span class="nav-number">1.2.2.</span> <span class="nav-text">Sing-box</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mihomo-%E5%8E%9F-Clash-Meta"><span class="nav-number">1.2.3.</span> <span class="nav-text">Mihomo (原 Clash Meta)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V2Ray-core"><span class="nav-number">1.2.4.</span> <span class="nav-text">V2Ray-core</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%AC%AC%E4%B8%89%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">1.2.5.</span> <span class="nav-text">一些第三方客户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6"><span class="nav-number">1.3.</span> <span class="nav-text">检测方法相关研究</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E5%8A%A8%E6%8E%A2%E6%B5%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">主动探测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A2%AB%E5%8A%A8%E6%8E%A2%E6%B5%8B"><span class="nav-number">1.3.2.</span> <span class="nav-text">被动探测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%8C%85%E6%A3%80%E6%B5%8B"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">深度包检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS%E5%8A%AB%E6%8C%81-%E6%B1%A1%E6%9F%93"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">DNS劫持&#x2F;污染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9A%E6%9C%AA%E8%B0%83%E6%9F%A5%E7%9A%84%E6%96%B9%E9%9D%A2"><span class="nav-number">1.4.</span> <span class="nav-text">尚未调查的方面</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#openstack%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">openstack概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-1-compute"><span class="nav-number">1.1.</span> <span class="nav-text">layer 1 - compute</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nova"><span class="nav-number">1.1.1.</span> <span class="nav-text">Nova</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zun"><span class="nav-number">1.1.2.</span> <span class="nav-text">Zun</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-2-storage"><span class="nav-number">1.2.</span> <span class="nav-text">layer 2 - storage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift"><span class="nav-number">1.2.1.</span> <span class="nav-text">Swift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cinder"><span class="nav-number">1.2.2.</span> <span class="nav-text">Cinder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manila"><span class="nav-number">1.2.3.</span> <span class="nav-text">Manila</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-3-networking"><span class="nav-number">1.3.</span> <span class="nav-text">layer 3 - networking</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neutron"><span class="nav-number">1.3.1.</span> <span class="nav-text">Neutron</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Octavia"><span class="nav-number">1.3.2.</span> <span class="nav-text">Octavia</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Designate"><span class="nav-number">1.3.3.</span> <span class="nav-text">Designate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-4-shared-services"><span class="nav-number">1.4.</span> <span class="nav-text">layer 4 - shared services</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Keystone"><span class="nav-number">1.4.1.</span> <span class="nav-text">Keystone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Glance"><span class="nav-number">1.4.2.</span> <span class="nav-text">Glance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Placement"><span class="nav-number">1.4.3.</span> <span class="nav-text">Placement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Barbican"><span class="nav-number">1.4.4.</span> <span class="nav-text">Barbican</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layer-5-web"><span class="nav-number">1.5.</span> <span class="nav-text">layer 5 - web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Horizon"><span class="nav-number">1.5.1.</span> <span class="nav-text">Horizon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#others"><span class="nav-number">1.6.</span> <span class="nav-text">others</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">docker实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%87%8D%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">docker文件系统（重点</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,13 +158,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -198,7 +199,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://pm25oo.top/2026/05/10/20260510/">
+    <link itemprop="mainEntityOfPage" href="https://pm25oo.top/2026/07/20/openstack-and-docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -211,12 +212,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="<b>VPN相关研究</b> | PM25OO's Blog">
+      <meta itemprop="name" content="openstack与docker | PM25OO's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          <b>VPN相关研究</b>
+          openstack与docker
         </h1>
 
         <div class="post-meta-container">
@@ -227,14 +228,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-10 18:42:25" itemprop="dateCreated datePublished" datetime="2026-05-10T18:42:25+08:00">2026-05-10</time>
+      <time title="创建时间：2026-07-20 22:42:35" itemprop="dateCreated datePublished" datetime="2026-07-20T22:42:35+08:00">2026-07-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-07-24 15:07:48" itemprop="dateModified" datetime="2026-07-24T15:07:48+08:00">2026-07-24</time>
+      <time title="修改时间：2026-07-27 16:53:42" itemprop="dateModified" datetime="2026-07-27T16:53:42+08:00">2026-07-27</time>
     </span>
 
   
@@ -251,120 +252,133 @@
 <div class="glass-container">
 <div class="glass-content">
 
-<p><img data-src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_14-43-45.png" alt="cover"></p>
-<h1 id="VPN攻防技术迭代"><a href="#VPN攻防技术迭代" class="headerlink" title="VPN攻防技术迭代"></a>VPN攻防技术迭代</h1><p><strong>一点想法：</strong>现在的各种“翻墙工具”几乎都是为了对抗GFW而生的，这是一场不断迭代的攻防游戏。因此，为了更好的研究各类“翻墙工具”，我们有必要调研各种现代VPN技术，在已有相关研究的基础上开展研发</p>
-<blockquote>
-<p><strong>⚠️ 安全研究声明</strong></p>
-<ul>
-<li><strong>目的：</strong> 本文仅用于网络安全技术交流及企业内部流量审计研究。</li>
-<li><strong>隐私：</strong> 实验所用 Pcap 数据已进行脱敏处理，不包含敏感个人信息。</li>
-<li><strong>责任：</strong> 严禁利用文中所述方法从事任何违反《中华人民共和国网络安全法》及相关法律法规的行为。研究技术是为了更好地防护，请勿越界。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>参考来源：</p>
-<p><a target="_blank" rel="noopener" href="https://gfw.report/zh/">GFW Report</a></p>
-<p><a target="_blank" rel="noopener" href="https://censoredplanet.org/#/blogs">Censored Planet</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.v2fly.org/developer/protocols/vmess.html">V2Ray相关技术</a></p>
-<p><a target="_blank" rel="noopener" href="https://trojan-gfw.github.io/trojan/">Trojan相关技术</a></p>
-<p><a target="_blank" rel="noopener" href="https://v2.hysteria.network/zh/docs/developers/Protocol/">Hysteria2相关技术</a></p>
-<p><a target="_blank" rel="noopener" href="https://xtls.github.io/">Project X</a></p>
-</blockquote>
+<p><img data-src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/Snipaste_2026-07-24_10-22-30.png" alt="cover"></p>
+<p><img data-src="https://www.openstack.org/static/000588f8b89d94da80eba6101f72ff7a/openstack-map-v20240401.png" alt="OpenStack Cloud landscape map"></p>
 <span id="more"></span>
 
-<h2 id="加密协议"><a href="#加密协议" class="headerlink" title="加密协议"></a>加密协议</h2><p>传统 VPN 旨在保护<strong>隐私（Privacy）</strong>，而现代协议旨在实现<strong>隐匿（Stealth）</strong>。</p>
-<h3 id="传统VPN协议"><a href="#传统VPN协议" class="headerlink" title="传统VPN协议"></a>传统VPN协议</h3><p>目的是<strong>在不安全的网络中建立安全的加密隧道</strong>，主要工作在网络层（L3）或数据链路层（L2）</p>
-<h4 id="OpenVPN"><a href="#OpenVPN" class="headerlink" title="OpenVPN"></a><strong>OpenVPN</strong></h4><ul>
-<li>基于 SSL&#x2F;TLS，有非常明显的<strong>握手特征</strong>（Handshake packets）。</li>
-<li>默认使用 UDP 1194 或 TCP 443。</li>
-<li><strong>特征码：</strong> 在 <code>pcapng</code> 中可以识别出特定的 OpenVPN 头部，包长度分布有规律。</li>
+<h1 id="openstack概述"><a href="#openstack概述" class="headerlink" title="openstack概述"></a>openstack概述</h1><p>是一套自动化配置，调度，管理服务器&#x2F;虚拟机资源的系统，通过各种组件形成的 <code>Infrastructure as a Service（IaaS）</code>，</p>
+<blockquote>
+<p>OpenStack &#x3D; 自己搭建 AWS（或阿里云、腾讯云）的软件。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">           OpenStack</span><br><span class="line"></span><br><span class="line">     ┌──────────────────┐</span><br><span class="line">     │     Dashboard    │</span><br><span class="line">     │       API        │</span><br><span class="line">     └──────────────────┘</span><br><span class="line"></span><br><span class="line">         ↓↓↓↓↓↓↓↓↓↓↓</span><br><span class="line"></span><br><span class="line">服务器A   服务器B   服务器C</span><br></pre></td></tr></table></figure>
+
+<p>本身不负责虚拟化技术相关，<strong>not Vmware</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">            OpenStack</span><br><span class="line">                 │</span><br><span class="line">   ┌─────────────┼──────────────┐</span><br><span class="line">   │             │              │</span><br><span class="line">KVM/QEMU      Ceph          Linux Network</span><br></pre></td></tr></table></figure>
+
+<h2 id="layer-1-compute"><a href="#layer-1-compute" class="headerlink" title="layer 1 - compute"></a>layer 1 - compute</h2><h3 id="Nova"><a href="#Nova" class="headerlink" title="Nova"></a>Nova</h3><p><strong>云主机管理中心</strong>。负责创建删除VM，开关机，调度，分配计算资源</p>
+<h3 id="Zun"><a href="#Zun" class="headerlink" title="Zun"></a>Zun</h3><p>启动和管理基于不同容器技术的容器</p>
+<h2 id="layer-2-storage"><a href="#layer-2-storage" class="headerlink" title="layer 2 - storage"></a>layer 2 - storage</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/nas/product-overview/comparison-of-nas-oss-and-ebs">NAS、OSS和EBS的区别-文件存储NAS(NAS)-阿里云帮助中心</a></p>
+</blockquote>
+<h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><p><strong>对象存储</strong></p>
+<h3 id="Cinder"><a href="#Cinder" class="headerlink" title="Cinder"></a>Cinder</h3><p><strong>块存储</strong></p>
+<h3 id="Manila"><a href="#Manila" class="headerlink" title="Manila"></a>Manila</h3><p><strong>共享文件系统</strong></p>
+<h2 id="layer-3-networking"><a href="#layer-3-networking" class="headerlink" title="layer 3 - networking"></a>layer 3 - networking</h2><h3 id="Neutron"><a href="#Neutron" class="headerlink" title="Neutron"></a>Neutron</h3><p>负责虚拟交换机，VLAN，DHCP，Router</p>
+<h3 id="Octavia"><a href="#Octavia" class="headerlink" title="Octavia"></a>Octavia</h3><p>负载均衡。</p>
+<h3 id="Designate"><a href="#Designate" class="headerlink" title="Designate"></a>Designate</h3><p>DNS</p>
+<h2 id="layer-4-shared-services"><a href="#layer-4-shared-services" class="headerlink" title="layer 4 - shared services"></a>layer 4 - shared services</h2><h3 id="Keystone"><a href="#Keystone" class="headerlink" title="Keystone"></a>Keystone</h3><p>身份认证，OAuth服务组件</p>
+<h3 id="Glance"><a href="#Glance" class="headerlink" title="Glance"></a>Glance</h3><p>发现、注册和检索虚拟机镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxx/kolla/glance-api:bc-2024.1-ubuntu  #使用kolla部署情况下的相关镜像</span><br><span class="line"></span><br><span class="line">filesystem_store_datadir = /var/lib/glance/images/  #镜像文件位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="Placement"><a href="#Placement" class="headerlink" title="Placement"></a>Placement</h3><p>资源调度。跟踪云资源库存和使用情况，以帮助其他服务有效管理和分配其资源。</p>
+<h3 id="Barbican"><a href="#Barbican" class="headerlink" title="Barbican"></a>Barbican</h3><p>密钥管理</p>
+<h2 id="layer-5-web"><a href="#layer-5-web" class="headerlink" title="layer 5 - web"></a>layer 5 - web</h2><h3 id="Horizon"><a href="#Horizon" class="headerlink" title="Horizon"></a>Horizon</h3><p>浏览器控制台</p>
+<h2 id="others"><a href="#others" class="headerlink" title="others"></a>others</h2><ul>
+<li>项目与角色</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OpenStack Cloud</span><br><span class="line">│</span><br><span class="line">├── 项目（Project/Tenant）</span><br><span class="line">│</span><br><span class="line">└── 角色（Role）</span><br><span class="line">      ├── member</span><br><span class="line">      └── admin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数据盘的选择</li>
+</ul>
+<p><strong>如果只是测试、临时开发环境</strong>：直接选择合适的 <code>...disk</code> Flavor，例如 <code>1c1g30gdisk</code> 或 <code>2c2g50gdisk</code>，不创建 Volume，操作简单。</p>
+<p><strong>如果是需要长期保留数据、数据库、重要业务环境</strong>：优先选择 <strong>Disk&#x3D;0</strong> 的 Flavor（如 <code>1c1g</code>、<code>1c2g</code>），然后勾选 <strong>Create New Volume</strong>，创建足够大的系统卷。这种方式更符合现代 OpenStack 的存储设计，也便于后续快照、备份、迁移和扩容。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.openstack.org/kolla-ansible/latest/user/quickstart.html">Kolla-Ansible - openstack部署工具</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Kolla-Ansible</span><br><span class="line">│</span><br><span class="line">├── 部署 keystone 容器</span><br><span class="line">├── 部署 nova 容器</span><br><span class="line">├── 部署 glance 容器</span><br><span class="line">├── 部署 horizon 容器</span><br><span class="line">└── 部署 kolla_toolbox 容器</span><br><span class="line">            │</span><br><span class="line">            ├── python-openstackclient (OSC)</span><br><span class="line">            ├── ansible</span><br><span class="line">            ├── mysql client</span><br><span class="line">            ├── openstacksdk</span><br><span class="line">            └── 各种运维工具</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在使用 openstack 的CLI工具前，因为 nova 节点的通信方式基于 http 请求，因此要配置相关环境变量</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export OS_PROJECT_ID=06923e90488045daa74a41919c6e6501 \</span><br><span class="line">export OS_PROJECT_NAME=&quot;admin&quot; \</span><br><span class="line">export OS_USER_DOMAIN_NAME=&quot;Default&quot; \</span><br><span class="line">export OS_USERNAME=&quot;admin&quot; \</span><br><span class="line">export OS_PASSWORD=&quot;password&quot; \</span><br><span class="line">export OS_AUTH_URL=http://162.162.1.100:5000 \</span><br><span class="line">export OS_REGION_NAME=&quot;RegionOne&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化实例时，可以通过自定义实例数据，借助 cloud-init 初始化密码、扩容根分区、设置主机名、注入公钥、执行自定义脚本等等</li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://censoredplanet.org/#/openvpn">OpenVPN is Open to VPN Fingerprinting</a></p>
+<ul>
+<li>metadata：一系列字典格式的元数据，用作模板渲染、模块运行等等。</li>
+<li>userdata：启动实例时用户能够指定的数据（单实例数据）</li>
+<li>vendordata：云基座传入的数据（全局数据）</li>
+</ul>
 </blockquote>
-<h4 id="WireGuard"><a href="#WireGuard" class="headerlink" title="WireGuard"></a>WireGuard</h4><ul>
-<li><strong>完全基于 UDP</strong>。</li>
-<li><strong>静默响应：</strong> 如果发往服务器的包不合法，服务器完全不回包（防止扫描）。</li>
-<li><strong>指纹：</strong> 虽然它是加密的，但其 UDP 报文的<strong>固定大小</strong>（如 148 字节的握手包）和特定字段偏移，使得它在流量分析中具有很高的统计学辨识度。</li>
+<p>常见 userdata 设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#cloud-config</span><br><span class="line">users:</span><br><span class="line">  - default</span><br><span class="line">  - name: root</span><br><span class="line">    ssh_pwauth: True</span><br><span class="line">disable_root: 0</span><br><span class="line">ssh_pwauth: 1</span><br><span class="line">chpasswd:</span><br><span class="line">  list: |</span><br><span class="line">    root:passwd</span><br><span class="line">  expire: False</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><blockquote>
+<p>Docker 是一种基于 Linux 内核能力实现的操作系统级虚拟化（OS-level Virtualization）技术，它将应用及其运行环境封装成一个标准化的容器（Container），实现”一次构建，到处运行”。</p>
+</blockquote>
+<p>没有虚拟硬件，没有虚拟BIOS，没有Guest OS，没有Kernel，而是<strong>多个进程共享宿主机Linux内核。</strong></p>
+<p>只有<strong>程序 + 依赖</strong></p>
+<h2 id="docker实现原理"><a href="#docker实现原理" class="headerlink" title="docker实现原理"></a>docker实现原理</h2><ul>
+<li>进程隔离</li>
 </ul>
-<h3 id="早期抗封锁协议"><a href="#早期抗封锁协议" class="headerlink" title="早期抗封锁协议"></a>早期抗封锁协议</h3><p>设计目标是<strong>绕过防火墙</strong>，通过简单的混淆和加密让流量看起来像“随机垃圾”。</p>
-<h4 id="Shadowsocks-SS"><a href="#Shadowsocks-SS" class="headerlink" title="Shadowsocks (SS)"></a>Shadowsocks (SS)</h4><ul>
-<li><strong>技术特征：</strong> SOCKS5 代理 + 预共享密钥加密（如 AES-256-GCM）。</li>
-<li><strong>无握手特征：</strong> 第一个包就开始发送加密数据。</li>
-<li><strong>高熵值 (High Entropy)：</strong> 整个 Payload 看起来完全随机。</li>
-<li><strong>弱点：主动探测</strong> —— <a target="_blank" rel="noopener" href="https://gfw.report/blog/gfw_shadowsocks/">GFW的做法</a></li>
+<p>一个容器进程本质上是一个<strong>运行在沙盒中的隔离进程</strong>，由Linux系统本身负责隔离（基于 <strong>Namespace</strong> 和 <strong>Cgroup</strong> 机制实现），Docker只是提供了一系列工具，帮助我们设置好隔离环境后，启动这个进程。</p>
+<ul>
+<li>文件系统隔离</li>
 </ul>
-<h3 id="现代隐匿协议（重点）"><a href="#现代隐匿协议（重点）" class="headerlink" title="现代隐匿协议（重点）"></a>现代隐匿协议（重点）</h3><p>让流量看起来像<strong>正常的 Web 流量</strong></p>
-<h4 id="VMess-V2Ray-的核心"><a href="#VMess-V2Ray-的核心" class="headerlink" title="VMess (V2Ray 的核心)"></a><a target="_blank" rel="noopener" href="https://www.v2fly.org/en_US/developer/protocols/vmess.html">VMess</a> (V2Ray 的核心)</h4><ul>
-<li><p><strong>认证原理</strong>：依赖于服务器和客户端的时间同步，这种设计是为了防止<strong>重放攻击</strong>（即防火墙截获一个包后反复发送，看服务器是否响应）。</p>
+<p>利用Linux的 <strong>mount</strong> 机制，给每个隔离进程挂载了一个虚拟的文件系统，再从 <strong>Dockerfile</strong> 构建</p>
+<ul>
+<li>网络协议栈隔离</li>
+</ul>
+<p>因为默认情况下隔离网络，所以要将进程端口号映射到宿主机后，才能通过宿主机访问隔离进程</p>
+<p>不同的容器间需要通信时，直接指定IP并不是一个好的方式，要使用 <strong>docker compose</strong> 将服务运行在<strong>同一网络命名空间</strong>里</p>
+<h2 id="docker文件系统（重点"><a href="#docker文件系统（重点" class="headerlink" title="docker文件系统（重点"></a>docker文件系统（重点</h2><ul>
+<li>整个目录树，就是一个<strong>文件系统</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/</span><br><span class="line">├── bin/</span><br><span class="line">├── etc/</span><br><span class="line">├── home/</span><br><span class="line">├── lib/</span><br><span class="line">├── proc/</span><br><span class="line">├── sys/</span><br><span class="line">├── usr/</span><br><span class="line">├── var/</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>docker 通过<strong>一组 layer 的引用</strong>构建 image</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Image1</span><br><span class="line"></span><br><span class="line">Layer1 (Ubuntu)</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line"></span><br><span class="line">Image2</span><br><span class="line"></span><br><span class="line">Layer1 (Ubuntu)</span><br><span class="line">Layer2 (Python)</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line"></span><br><span class="line">Image3</span><br><span class="line"></span><br><span class="line">Layer1 (Ubuntu)</span><br><span class="line">Layer2 (Python)</span><br><span class="line">Layer3 (flask)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>layer 不是一个压缩包或完整文件系统，而是一个<strong>文件系统增量（Filesystem Diff）</strong>，记录相对于上一层：增加，删除，修改了什么</p>
 </li>
-<li><p><strong>弱点：</strong>其协议头具有明显的统计特征，现代做法是套一层WebSocket，再套一层TLS，以及后来为了规避TLS指纹库审查方式而诞生的<a target="_blank" rel="noopener" href="https://github.com/refraction-networking/utls">uTLS</a></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://gfw.report/blog/blocking_of_tls_based_circumvention_tools/zh/">Large scale blocking of TLS-based censorship circumvention tools in China</a></p>
-<p><a target="_blank" rel="noopener" href="https://tlsfingerprint.io/static/frolov2019.pdf">The use of TLS in Censorship Circumvention</a></p>
-<p><a target="_blank" rel="noopener" href="https://chatgpt.com/share/6a004eab-06ac-83e9-9fd6-8b975fc74383">ChatGPT对上述论文的简析</a></p>
-</blockquote>
+<li><p>layer 全是<strong>只读</strong>属性，只有 Writable Layer 可对最上面一层layer可写</p>
 </li>
 </ul>
-<h4 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a><a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan/tree/master">Trojan</a></h4><ul>
-<li>将所有流量模仿成翻墙中最常见的协议 <code>HTTPS</code> ，诱使 GFW 误以为它是 <code>HTTPS</code></li>
-<li><strong>反检测机制：</strong>所有没有正确结构和密码的连接都将被重定向到预设的端点</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Container</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Writable Layer</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Layer3</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Layer2</span><br><span class="line"></span><br><span class="line">──────────────</span><br><span class="line"></span><br><span class="line">Layer1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Docker 在 Linux 上通常使用 <strong>OverlayFS</strong> 作为存储驱动，通过不断 mount，merge layers</li>
 </ul>
-<h4 id="REALITY（by-Project-X）"><a href="#REALITY（by-Project-X）" class="headerlink" title="REALITY（by Project X）"></a><a target="_blank" rel="noopener" href="https://github.com/XTLS/REALITY">REALITY</a>（by <a target="_blank" rel="noopener" href="https://github.com/XTLS">Project X</a>）</h4><ul>
-<li>XTLS协议的升级，<a target="_blank" rel="noopener" href="https://github.com/XTLS/Xray-core/discussions/1295">关于XTLS</a></li>
-<li>若用 REALITY 取代 TLS，<strong>可消除服务端 TLS 指纹特征</strong>，仍有前向保密性等，<strong>且证书链攻击无效，安全性超越常规 TLS</strong>，且<strong>可以指向别人的网站</strong>，无需自己买域名、配置 TLS 服务端，更方便，<strong>实现向中间人呈现指定 SNI 的全程真实 TLS</strong>，<a target="_blank" rel="noopener" href="https://github.com/XTLS/Xray-core/discussions/4850">白话解释</a></li>
+<p><img data-src="https://www.nemunai.re/post/unveiling-whiteout-files/overlayfs.png" alt="File access by layer"></p>
+<ul>
+<li><p><strong>修改</strong>文件时： Copy-on-Write（写时复制）机制， copy layer 并在上层创建 writable layer</p>
+</li>
+<li><p><strong>删除</strong>文件时：在上层创建 whiteout file （一般做法：<code>.wh.&lt;filename&gt;</code>），以指示该文件不应再显示在合并层中</p>
+</li>
+<li><p><strong>dockerfile</strong></p>
+</li>
 </ul>
-<h4 id="Hysteria2"><a href="#Hysteria2" class="headerlink" title="Hysteria2"></a><a target="_blank" rel="noopener" href="https://github.com/apernet/hysteria">Hysteria2</a></h4><ul>
-<li>一个基于 <a target="_blank" rel="noopener" href="https://medium.com/@gtamilarasan/a-closer-look-at-http3-quic-1b2b97a5cd50">HTTP&#x2F;3 QUIC</a> 的 TCP 和 UDP（主要） 代理，得益于 QUIC 的全加密和填充，<strong>大大地增加中间防火墙嗅探的负担</strong>，且强制要求使用 TLS 1.3</li>
-<li>通过在数据包中加入随机长度的填充，来专门对抗流量分析</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:24.04                   // 指定基础镜像</span><br><span class="line"></span><br><span class="line">RUN apt update                      // 构建镜像时执行命令 (生成新的 layer)</span><br><span class="line"></span><br><span class="line">RUN apt install -y python3</span><br><span class="line"></span><br><span class="line">COPY app.py /app/                   // 复制本地文件</span><br><span class="line"></span><br><span class="line">CMD [&quot;python3&quot;, &quot;/app/app.py&quot;]      // 容器启动时执行命令</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>docker commit</strong></li>
 </ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://stenzr.medium.com/understanding-tls-sni-and-why-it-matters-in-real-world-api-proxying-374d24123b08">理解 TLS SNI——以及它为何在实际 API 代理中至关重要</a></p>
-<p><a target="_blank" rel="noopener" href="https://gfw.report/publications/usenixsecurity25/zh/">GFW的相关手段</a></p>
-<p><a target="_blank" rel="noopener" href="https://patrowl.io/en/blog/tls-1-3-esni-doh-interception">TLS 1.3, ESNI, DoH, interception… it’s not that complicated 😉</a></p>
-</blockquote>
-<h4 id="AnyTLS"><a href="#AnyTLS" class="headerlink" title="AnyTLS"></a><a target="_blank" rel="noopener" href="https://github.com/anytls/anytls-go">AnyTLS</a></h4><ul>
-<li>一个试图缓解 嵌套的TLS握手指纹(TLS in TLS) 问题的代理协议。</li>
+<p>容器创建时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      Container</span><br><span class="line"></span><br><span class="line">Writable Layer   ← 可写</span><br><span class="line">-------------------------</span><br><span class="line">Layer3           ← 只读</span><br><span class="line">Layer2</span><br><span class="line">Layer1</span><br></pre></td></tr></table></figure>
+
+<p>执行 commit 后，docker 会进行 Filesystem Diff，新增 layer 并更新 history，并创建一个新 image</p>
+<ul>
+<li>假设有一个b镜像（基础镜像a），c镜像（基础镜像也是a），使用go，把c，a的差异文件提取出来，并支持docker load直接导入差异文件 <a target="_blank" rel="noopener" href="https://github.com/zn-chen/dockerdiff">zn-chen&#x2F;dockerdiff</a></li>
 </ul>
-<h2 id="代理客户端"><a href="#代理客户端" class="headerlink" title="代理客户端"></a>代理客户端</h2><p>工具繁多，功能大同小异，但起核心作用的总是<strong>代理内核</strong>，以下是几款常见的内核</p>
-<h3 id="Xray-core-Project-X"><a href="#Xray-core-Project-X" class="headerlink" title="Xray-core (Project X)"></a><a target="_blank" rel="noopener" href="https://xtls.github.io/">Xray-core</a> (<a target="_blank" rel="noopener" href="https://github.com/XTLS">Project X</a>)</h3><p>目前技术演进最快、影响力最大的内核。它是从 V2Ray 衍生出来的分支（Fork），专注于高性能和新技术研发，包括REALITY，VLESS，XTLS</p>
-<h3 id="Sing-box"><a href="#Sing-box" class="headerlink" title="Sing-box"></a><a target="_blank" rel="noopener" href="https://sing-box.sagernet.org/zh/">Sing-box</a></h3><p>高性能，低内存占用</p>
-<h3 id="Mihomo-原-Clash-Meta"><a href="#Mihomo-原-Clash-Meta" class="headerlink" title="Mihomo (原 Clash Meta)"></a><a target="_blank" rel="noopener" href="https://wiki.metacubex.one/">Mihomo</a> (原 <a target="_blank" rel="noopener" href="https://github.com/MetaCubeX">Clash Meta</a>)</h3><p>在原有的 Clash 项目（已停更）基础上发展而来的分支，是目前 Clash 生态中最强大的内核，继承了 Clash 极其灵活的规则分流引擎以及实现了全协议支持。</p>
-<h3 id="V2Ray-core"><a href="#V2Ray-core" class="headerlink" title="V2Ray-core"></a><a target="_blank" rel="noopener" href="https://www.v2fly.org/">V2Ray-core</a></h3><p>出现较早，是多协议代理工具的开创者，提出了著名的“路由-出口-入口”架构。</p>
-<h3 id="一些第三方客户端"><a href="#一些第三方客户端" class="headerlink" title="一些第三方客户端"></a>一些第三方客户端</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN">V2RayN</a> 是一个基于 V2Ray和Singbox等一系列内核的 Windows 客户端。</li>
-<li><a target="_blank" rel="noopener" href="https://v2raya.org/">v2RayA</a>：基于 web GUI 的跨平台 V2Ray 客户端，在 Linux 上支持全局透明代理，其他平台上支持系统代理。</li>
-<li><a target="_blank" rel="noopener" href="https://www.clashverge.dev/">clash-verge-rev</a>：内置<a target="_blank" rel="noopener" href="https://github.com/MetaCubeX/mihomo">Clash.Meta(mihomo)</a>内核，并支持切换 <code>Alpha</code> 版本内核，可视化节点和规则编辑。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/chen08209/FlClash">FIClash</a>：基于 ClashMeta 的多平台代理客户端，简洁易用，开源且无广告。</li>
-<li>······</li>
-</ul>
-<h2 id="检测方法相关研究"><a href="#检测方法相关研究" class="headerlink" title="检测方法相关研究"></a>检测方法相关研究</h2><h3 id="主动探测"><a href="#主动探测" class="headerlink" title="主动探测"></a>主动探测</h3><ul>
-<li><strong>协议回放&#x2F;重放攻击：</strong> 探测器会模拟客户端向你的服务器发送一段之前捕获的加密报文。如果你的服务器给予了“符合协议逻辑”的回包，则判定为代理。</li>
-<li><strong>异常报文测试：</strong> 向目标端口发送不符合协议格式的随机数据。如果服务器选择了直接断开连接（这是很多代理软件的防探测机制，但本身也是一种特征），GFW 可能会通过侧信道（Side-channel）分析来确认。</li>
-<li><strong>证书一致性检查：</strong> 如果你使用的是自签名证书，或者证书域名与实际访问的 SNI 不符，会触发立即阻断。</li>
-</ul>
-<blockquote>
-<p> <a target="_blank" rel="noopener" href="https://ensa.fi/papers/Ensafi2015b.pdf">Examining How the Great Firewall Discovers Hidden Circumvention Servers</a></p>
-</blockquote>
-<h3 id="被动探测"><a href="#被动探测" class="headerlink" title="被动探测"></a>被动探测</h3><h4 id="深度包检测"><a href="#深度包检测" class="headerlink" title="深度包检测"></a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E5%8C%85%E6%A3%80%E6%B5%8B">深度包检测</a></h4><ul>
-<li><strong>协议特征码匹配：</strong> 针对 OpenVPN、L2TP 等传统协议。即使开启了混淆，GFW 仍能识别出协议握手阶段的特定偏移字节。</li>
-<li><strong>TLS 指纹识别 (JA3&#x2F;JA4+)：</strong> 这是目前检测 V2Ray&#x2F;Trojan 的核心手段。GFW 会记录 TLS 握手中的加密套件列表、扩展项顺序、ALPN 值等。</li>
-<li><strong>QUIC&#x2F;HTTP3 审计：</strong> 通过解密 QUIC Initial 包，从而读取其中的 SNI 甚至部分握手参数。</li>
-</ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://gfw.report/publications/usenixsecurity23/zh/#sec:reverse-engineering">某国外研究团队对GFW流量过滤规则的猜测</a></p>
-</blockquote>
-<h4 id="DNS劫持-污染"><a href="#DNS劫持-污染" class="headerlink" title="DNS劫持&#x2F;污染"></a><a target="_blank" rel="noopener" href="https://gfw.report/publications/foci20_dns/zh/">DNS劫持&#x2F;污染</a></h4><ul>
-<li><strong>劫持 (Hijacking)：</strong> 强行获取 DNS 服务器的控制权，或直接在网关层面重定向请求。</li>
-<li><strong>污染 (Pollution)：</strong> 不控制服务器，而是通过“抢答”机制，将错误的解析结果抢在正确结果之前发送给用户。</li>
-<li>现代“翻墙工具”已经抛弃传统DNS查询方式，而是通过<a target="_blank" rel="noopener" href="https://www.guozhenyi.com/post/2025/03/07/dns-doh-vs-dot-vs-doq.html">DoH，DoT，DoQ</a>等手段处理</li>
-</ul>
-<h2 id="尚未调查的方面"><a href="#尚未调查的方面" class="headerlink" title="尚未调查的方面"></a>尚未调查的方面</h2><ul>
-<li>各类“一键直连”的“翻墙工具”（免费&#x2F;付费）</li>
-<li>敏感&#x2F;违规关键字审查机制</li>
-</ul>
-<p>欢迎补充</p>
-<p><strong>最后：</strong>技术在不断迭代，上述的某些文章可能已经过时，目前的审查手段已经逐步转向基于机器学习对流量特征的识别，因此还需要大量的流量分析来辅佐研究</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">DiffExport</span><br><span class="line">    |</span><br><span class="line">    |</span><br><span class="line">    +---- inspect image1</span><br><span class="line">    |</span><br><span class="line">    +---- inspect image2</span><br><span class="line">    |</span><br><span class="line">    +---- 找共同layer</span><br><span class="line">    |</span><br><span class="line">    +---- ImageExport(image2)</span><br><span class="line">    |          |</span><br><span class="line">    |          v</span><br><span class="line">    |       image2目录</span><br><span class="line">    |</span><br><span class="line">    +---- 修改目录中的layer</span><br><span class="line">    |</span><br><span class="line">    +---- ImageTar()</span><br><span class="line">               |</span><br><span class="line">               v</span><br><span class="line">            输出tar</span><br></pre></td></tr></table></figure>
+
 </div>
 </div>
 
@@ -376,21 +390,22 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag"># 网络安全</a>
-              <a href="/tags/VPN/" rel="tag"># VPN</a>
+              <a href="/tags/openstack/" rel="tag"># openstack</a>
+              <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" rel="tag"># 云平台</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/02/10/20250628/" rel="prev" title="<b>渗透入门</b>">
-                  <i class="fa fa-angle-left"></i> <b>渗透入门</b>
+                <a href="/2026/05/10/VPN-research/" rel="prev" title="VPN相关研究">
+                  <i class="fa fa-angle-left"></i> VPN相关研究
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/07/20/20260720/" rel="next" title="<b>openstack与docker</b>">
-                  <b>openstack与docker</b> <i class="fa fa-angle-right"></i>
+                <a href="/2026/07/22/frp/" rel="next" title="内网穿透代理frp">
+                  内网穿透代理frp <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
