@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
@@ -15,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="PM25OO&#39;s Blog">
@@ -40,6 +39,27 @@
 
 
 
+
+
+
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/ribbon.js/dist/ribbon.min.js" defer></script>
+  <script src="/lib/animejs/lib/anime.min.js" defer></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
 
 
 
@@ -83,7 +103,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-blogrolls"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Blogrolls</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-blogrolls"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Blogrolls</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -201,7 +221,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | PM25OO's Blog">
+      <meta itemprop="name" content=" | PM25OO's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -302,6 +322,7 @@
 // 播放列表配置 - 在此处添加或编辑歌曲
 const playlist = [
   // { title: "", path: ""},
+  { title: "Fall of Dusk", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Fall%20of%20Dusk.mp3"},
   { title: "Goodbye", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Clive%20Farrington%20-%20Goodbye.mp3" },
   { title: "Any Love of Any Kind", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Any%20Love%20of%20Any%20Kind.mp3"},
   { title: "Don't Be So Serious", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Don%27t%20Be%20So%20Serious.mp3" },
@@ -317,6 +338,7 @@ const playlist = [
 const PlayerState = {
   index: 0,
   isExpanded: false,
+  isLoading: false,
   playlistTimeoutId: null,
   listeners: {},
   
@@ -340,13 +362,6 @@ const PlayerState = {
   font-family: 'SpotifyMix';
   src: url('/fonts/SpotifyMix-Bold.woff2') format('woff2');
   font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'HarmonySans';
-  src: url('/fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
-  font-weight: 400;
   font-display: swap;
 }
 
@@ -379,7 +394,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9999;
-    font-family: 'SpotifyMix', 'HarmonySans', sans-serif;
+    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -564,7 +579,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9998;
-    font-family: 'SpotifyMix', 'HarmonySans', sans-serif;
+    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
     border: 1px solid var(--border-color);
@@ -639,6 +654,11 @@ const PlayerState = {
     background: rgba(0, 188, 212, 0.6);
     border-radius: 2px;
   }
+  html.harmony-font-loaded #floating-player,
+  html.harmony-font-loaded #playlist-container {
+    font-family: 'SpotifyMix', 'HarmonyOS_Sans_SC_Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
   
   @media (max-width: 480px) {
     #floating-player {
@@ -682,12 +702,10 @@ const PlayerState = {
     </button>
   </div>
   <input type="range" id="progress-bar" min="0" max="100" value="0" readonly>
-  <audio id="bgm-player" preload="auto"></audio>
+  <audio id="bgm-player" preload="none"></audio>
 </div>
 
 <script>
-let index = 0;
-
 const audio = document.getElementById('bgm-player');
 const progressBar = document.getElementById('progress-bar');
 const playPauseButton = document.getElementById('play-pause-button');
@@ -726,29 +744,60 @@ function updateSongTitle() {
   songTitleEl.textContent = playlist[PlayerState.index].title;
 }
 
-function loadSong(i) {
-  PlayerState.index = (i + playlist.length) % playlist.length;
-  const song = playlist[PlayerState.index];
-  updateSongTitle();
-  
-  // 如果当前有音乐在播放，先淡出再切换
-  if (!audio.paused) {
-    fadeOut().then(() => {
-      audio.src = song.path;
-      updatePlaylistActive();
-      audio.play().then(async () => {
-        await fadeIn();
-        playPauseButton.classList.add('playing');
-      });
-    });
-  } else {
-    audio.src = song.path;
-    updatePlaylistActive();
-    audio.play().then(async () => {
-      await fadeIn();
-      playPauseButton.classList.add('playing');
-    });
+// 仅在用户开始播放或主动切歌时设置 src，避免音频进入首屏加载队列。
+function ensureSongSource() {
+  const sourceIndex = String(PlayerState.index);
+
+  if (audio.dataset.songIndex === sourceIndex) {
+    return;
   }
+
+  audio.src = playlist[PlayerState.index].path;
+  audio.dataset.songIndex = sourceIndex;
+  audio.load();
+}
+
+function setLoadingState(isLoading) {
+  PlayerState.isLoading = isLoading;
+  playPauseButton.setAttribute('aria-busy', String(isLoading));
+}
+
+async function startPlayback() {
+  if (PlayerState.isLoading) {
+    return;
+  }
+
+  setLoadingState(true);
+  ensureSongSource();
+  audio.volume = 0;
+
+  try {
+    // play() 返回 Promise；媒体在页面渲染完成后按需异步加载。
+    await audio.play();
+    await fadeIn();
+    playPauseButton.classList.add('playing');
+  } catch (error) {
+    playPauseButton.classList.remove('playing');
+    console.warn('歌曲加载或播放失败：', error);
+  } finally {
+    setLoadingState(false);
+  }
+}
+
+async function loadSong(i) {
+  if (PlayerState.isLoading) {
+    return;
+  }
+
+  if (!audio.paused) {
+    await fadeOut();
+    audio.pause();
+  }
+
+  PlayerState.index = (i + playlist.length) % playlist.length;
+  updateSongTitle();
+  updatePlaylistActive();
+  await startPlayback();
 }
 
 function prevSong() {
@@ -759,17 +808,17 @@ function nextSong() {
   loadSong(PlayerState.index + 1);
 }
 
-function togglePlay() {
+async function togglePlay() {
+  if (PlayerState.isLoading) {
+    return;
+  }
+
   if (audio.paused) {
-    audio.play().then(async () => {
-      await fadeIn();
-      playPauseButton.classList.add('playing');
-    });
+    await startPlayback();
   } else {
-    fadeOut().then(() => {
-      audio.pause();
-      playPauseButton.classList.remove('playing');
-    });
+    await fadeOut();
+    audio.pause();
+    playPauseButton.classList.remove('playing');
   }
 }
 
@@ -860,9 +909,6 @@ audio.addEventListener('timeupdate', () => {
 document.addEventListener('DOMContentLoaded', function () {
   generatePlaylist();
   updateSongTitle();
-  
-  // 加载第一首歌但不播放
-  audio.src = playlist[0].path;
   updatePlaylistActive();
   
   // 初始状态：收缩为药丸形
@@ -874,7 +920,9 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('beforeunload', () => {
   PlayerState.cleanup();
   audio.pause();
-  audio.src = '';
+  audio.removeAttribute('src');
+  audio.removeAttribute('data-song-index');
+  audio.load();
 });
 </script>
 
@@ -900,29 +948,6 @@ window.addEventListener('beforeunload', () => {
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-
-
-
-
-
-
-  
-
-
-
-
 <script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"PM25OO/PM25OO.github.io","repo_id":"R_kgDONjexfw","category":"Announcements","category_id":"DIC_kwDONjexf84CumIW","mapping":"pathname","strict":0,"reactions_enabled":1,"emit_metadata":0,"theme":"light","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
 
 <script>
@@ -1086,6 +1111,60 @@ document.addEventListener('page:loaded', () => {
     initLinksPage();
   }
   
+})();
+</script>
+
+<script>
+(function() {
+  'use strict';
+
+  var fontFamily = 'HarmonyOS_Sans_SC_Regular';
+  var fontUrl = '/fonts/HarmonyOS_Sans_SC_Regular.woff2';
+  var loadedClass = 'harmony-font-loaded';
+
+  function shouldSkipDeferredFont() {
+    var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    return connection && (
+      connection.saveData ||
+      connection.effectiveType === 'slow-2g' ||
+      connection.effectiveType === '2g'
+    );
+  }
+
+  async function loadDeferredFont() {
+    if (!('FontFace' in window) || !document.fonts || shouldSkipDeferredFont()) {
+      return;
+    }
+
+    try {
+      var fontFace = new FontFace(
+        fontFamily,
+        'url("' + fontUrl + '") format("woff2")',
+        { style: 'normal', weight: '400' }
+      );
+      var loadedFont = await fontFace.load();
+      document.fonts.add(loadedFont);
+      document.documentElement.classList.add(loadedClass);
+    } catch (error) {
+      console.warn('中文设计字体后台加载失败：', error);
+    }
+  }
+
+  function scheduleDeferredFont() {
+    setTimeout(function() {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadDeferredFont, { timeout: 5000 });
+      } else {
+        loadDeferredFont();
+      }
+    }, 3000);
+  }
+
+  if (document.readyState === 'complete') {
+    scheduleDeferredFont();
+  } else {
+    window.addEventListener('load', scheduleDeferredFont, { once: true });
+  }
 })();
 </script>
 

