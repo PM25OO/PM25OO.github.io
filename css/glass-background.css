@@ -28,7 +28,7 @@
   position: relative;
   z-index: 1;
   color: #333;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* 深色主题适配 */
