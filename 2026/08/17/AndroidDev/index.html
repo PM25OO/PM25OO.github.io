@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="/lib/animate.css/animate.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="article">
 <meta property="og:title" content="Android 开发与 Kotlin">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/blog_android_dev/android_stack.jpg">
 <meta property="og:image" content="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/blog_android_dev/proj_menu.jpg">
 <meta property="article:published_time" content="2026-08-17T09:10:45.000Z">
-<meta property="article:modified_time" content="2026-08-26T05:09:56.795Z">
+<meta property="article:modified_time" content="2026-09-07T03:00:27.977Z">
 <meta property="article:author" content="PM25OO">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="Android">
@@ -57,6 +57,7 @@
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/ribbon.js/dist/ribbon.min.js" defer></script>
   <script src="/lib/animejs/lib/anime.min.js" defer></script>
   <script src="/lib/@next-theme/pjax/pjax.min.js" defer></script>
+  <script src="/lib/lozad/dist/lozad.min.js" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   <script src="/lib/hexo-generator-searchdb/dist/search.js" defer></script>
@@ -169,8 +170,8 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="PM25OO"
-      src="/uploads/avatar.png">
+    <img loading="lazy" decoding="async" class="site-author-image" itemprop="image" alt="PM25OO"
+      src="/uploads/avatar.webp">
   <p class="site-author-name" itemprop="name">PM25OO</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -222,7 +223,7 @@
     <link itemprop="mainEntityOfPage" href="https://pm25oo.top/2026/08/17/AndroidDev/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.webp">
       <meta itemprop="name" content="PM25OO">
     </span>
 
@@ -255,7 +256,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-08-26 13:09:56" itemprop="dateModified" datetime="2026-08-26T13:09:56+08:00">2026-08-26</time>
+      <time title="修改时间：2026-09-07 11:00:27" itemprop="dateModified" datetime="2026-09-07T11:00:27+08:00">2026-09-07</time>
     </span>
 
   
@@ -272,10 +273,11 @@
 <div class="glass-container">
 <div class="glass-content">
 
-<p><img src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/cover_android.png" alt="cover"></p>
+<img src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/cover_android.png" alt="cover" loading="eager" fetchpriority="high">
+
 <span id="more"></span>
 
-<h1 id="了解-Android-系统与应用"><a href="#了解-Android-系统与应用" class="headerlink" title="了解 Android 系统与应用"></a>了解 Android 系统与应用</h1><h2 id="Android-系统架构"><a href="#Android-系统架构" class="headerlink" title="Android 系统架构"></a>Android 系统架构</h2><p><img src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/blog_android_dev/android_stack.jpg"></p>
+<h1 id="了解-Android-系统与应用"><a href="#了解-Android-系统与应用" class="headerlink" title="了解 Android 系统与应用"></a>了解 Android 系统与应用</h1><h2 id="Android-系统架构"><a href="#Android-系统架构" class="headerlink" title="Android 系统架构"></a>Android 系统架构</h2><p><img loading="lazy" decoding="async" data-src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/blog_android_dev/android_stack.jpg"></p>
 <ul>
 <li>Linux 内核层</li>
 </ul>
@@ -309,7 +311,7 @@
 <li>SQLite数据库</li>
 </ul>
 <p>自带了这种轻量级、运算速度极快的嵌入式关系型数据库，还可以通过 Android 封装好的 API 进行操作，方便了数据的存取</p>
-<h1 id="分析-Android-程序的项目结构"><a href="#分析-Android-程序的项目结构" class="headerlink" title="分析 Android 程序的项目结构"></a>分析 Android 程序的项目结构</h1><h2 id="Project-视图下的目录结构"><a href="#Project-视图下的目录结构" class="headerlink" title="Project 视图下的目录结构"></a>Project 视图下的目录结构</h2><p><img src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/blog_android_dev/proj_menu.jpg"></p>
+<h1 id="分析-Android-程序的项目结构"><a href="#分析-Android-程序的项目结构" class="headerlink" title="分析 Android 程序的项目结构"></a>分析 Android 程序的项目结构</h1><h2 id="Project-视图下的目录结构"><a href="#Project-视图下的目录结构" class="headerlink" title="Project 视图下的目录结构"></a>Project 视图下的目录结构</h2><p><img loading="lazy" decoding="async" data-src="https://entertainment-resources.oss-cn-hangzhou.aliyuncs.com/Pictures/blog_android_dev/proj_menu.jpg"></p>
 <ul>
 <li>.gradle 和 .idea</li>
 </ul>
@@ -499,6 +501,7 @@
 
 </div>
 </div>
+
     </div>
 
     
@@ -629,7 +632,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9999;
-    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: 'SpotifyMix', "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -814,7 +817,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9998;
-    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: 'SpotifyMix', "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
     border: 1px solid var(--border-color);
@@ -889,12 +892,6 @@ const PlayerState = {
     background: rgba(0, 188, 212, 0.6);
     border-radius: 2px;
   }
-  html.harmony-font-loaded #floating-player,
-  html.harmony-font-loaded #playlist-container {
-    font-family: 'SpotifyMix', 'HarmonyOS_Sans_SC_Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  }
-
-  
   @media (max-width: 480px) {
     #floating-player {
       width: 90%;
@@ -1268,9 +1265,10 @@ document.addEventListener('page:loaded', () => {
             
             linkCard.innerHTML = 
               '<div class="link-card-content">' +
-                '<img class="link-avatar" ' +
+                '<img loading="lazy" decoding="async" class="link-avatar" ' +
                      'src="' + avatarUrl + '" ' +
                      'alt="' + link.name + '" ' +
+                     'loading="lazy" decoding="async" ' +
                      'onerror="this.src=\'https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/link/missing.png\'">' +
                 '<h3 class="link-title">' + link.name + '</h3>' +
               '</div>';
@@ -1346,60 +1344,6 @@ document.addEventListener('page:loaded', () => {
     initLinksPage();
   }
   
-})();
-</script>
-
-<script>
-(function() {
-  'use strict';
-
-  var fontFamily = 'HarmonyOS_Sans_SC_Regular';
-  var fontUrl = '/fonts/HarmonyOS_Sans_SC_Regular.woff2';
-  var loadedClass = 'harmony-font-loaded';
-
-  function shouldSkipDeferredFont() {
-    var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    return connection && (
-      connection.saveData ||
-      connection.effectiveType === 'slow-2g' ||
-      connection.effectiveType === '2g'
-    );
-  }
-
-  async function loadDeferredFont() {
-    if (!('FontFace' in window) || !document.fonts || shouldSkipDeferredFont()) {
-      return;
-    }
-
-    try {
-      var fontFace = new FontFace(
-        fontFamily,
-        'url("' + fontUrl + '") format("woff2")',
-        { style: 'normal', weight: '400' }
-      );
-      var loadedFont = await fontFace.load();
-      document.fonts.add(loadedFont);
-      document.documentElement.classList.add(loadedClass);
-    } catch (error) {
-      console.warn('中文设计字体后台加载失败：', error);
-    }
-  }
-
-  function scheduleDeferredFont() {
-    setTimeout(function() {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadDeferredFont, { timeout: 5000 });
-      } else {
-        loadDeferredFont();
-      }
-    }, 3000);
-  }
-
-  if (document.readyState === 'complete') {
-    scheduleDeferredFont();
-  } else {
-    window.addEventListener('load', scheduleDeferredFont, { once: true });
-  }
 })();
 </script>
 

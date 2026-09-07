@@ -24,7 +24,7 @@
 }
 
 .glass-content {
-  font-family: 'HarmonyOS_Sans_SC_Regular', 'Arial', 'Microsoft YaHei', sans-serif;
+  font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, Arial, sans-serif;
   position: relative;
   z-index: 1;
   color: #333;

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="/lib/animate.css/animate.min.css">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pm25oo.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="PM25OO&#39;s Blog">
@@ -48,6 +48,7 @@
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/ribbon.js/dist/ribbon.min.js" defer></script>
   <script src="/lib/animejs/lib/anime.min.js" defer></script>
   <script src="/lib/@next-theme/pjax/pjax.min.js" defer></script>
+  <script src="/lib/lozad/dist/lozad.min.js" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   <script src="/lib/hexo-generator-searchdb/dist/search.js" defer></script>
@@ -159,8 +160,8 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="PM25OO"
-      src="/uploads/avatar.png">
+    <img loading="lazy" decoding="async" class="site-author-image" itemprop="image" alt="PM25OO"
+      src="/uploads/avatar.webp">
   <p class="site-author-name" itemprop="name">PM25OO</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -211,7 +212,7 @@
     <link itemprop="mainEntityOfPage" href="https://pm25oo.top/2024/12/25/2024CBCTF_WriteUp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.webp">
       <meta itemprop="name" content="PM25OO">
     </span>
 
@@ -267,16 +268,16 @@
 <h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="EQUATI0N"><a href="#EQUATI0N" class="headerlink" title="EQUATI0N"></a>EQUATI0N</h3><p>根据题目及输出内容，编写解题脚本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import inverse</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给定的数据</span></span><br><span class="line">data = [</span><br><span class="line">    (424507, 258891, 246908, 696833),</span><br><span class="line">    (725635, 532266, 196020, 913873),</span><br><span class="line">    (525257, 615406, 320693, 1041077),</span><br><span class="line">    (83144, 77839, 378617, 739631),</span><br><span class="line">    (118240, 112107, 439081, 659539),</span><br><span class="line">    (689363, 382486, 909472, 1013741),</span><br><span class="line">    (689679, 637871, 783227, 901529),</span><br><span class="line">    (255640, 331169, 471838, 594311),</span><br><span class="line">    (583522, 135573, 846849, 1010203),</span><br><span class="line">    (420869, 290426, 411805, 618377),</span><br><span class="line">    (945219, 32778, 905582, 1021651),</span><br><span class="line">    (620301, 441932, 117862, 869233),</span><br><span class="line">    (663631, 852415, 494895, 867619),</span><br><span class="line">    (699620, 557493, 53174, 730571),</span><br><span class="line">    (59702, 84201, 265515, 854299),</span><br><span class="line">    (20572, 600277, 106738, 765319),</span><br><span class="line">    (681296, 883108, 245309, 900577),</span><br><span class="line">    (100959, 581845, 520231, 716789),</span><br><span class="line">    (149718, 384454, 362305, 876761),</span><br><span class="line">    (373486, 791525, 183314, 847477),</span><br><span class="line">    (550280, 313487, 490116, 601397),</span><br><span class="line">    (318232, 430375, 409959, 934907),</span><br><span class="line">    (79907, 133279, 451022, 561917),</span><br><span class="line">    (171513, 94683, 332805, 615497),</span><br><span class="line">    (426495, 420294, 285501, 619079),</span><br><span class="line">]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">转换为 (a_i, d_i, p_i)</span></span><br><span class="line">equations = []</span><br><span class="line">for a, b, c, p in data:</span><br><span class="line">    d = (c - b) % p</span><br><span class="line">    equations.append((a, d, p))</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">求解单个方程</span></span><br><span class="line">def solve_one_equation(a, d, p):</span><br><span class="line">    inv_a = inverse(a, p)</span><br><span class="line">    return (inv_a * d) % p</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 CRT 合并方程</span></span><br><span class="line">def chinese_remainder_theorem(equations):</span><br><span class="line">    x = 0</span><br><span class="line">    N = 1</span><br><span class="line">    for _, _, p in equations:</span><br><span class="line">        N *= p</span><br><span class="line">    </span><br><span class="line">    for a, d, p in equations:</span><br><span class="line">        n = N // p</span><br><span class="line">        inv_n = inverse(n, p)</span><br><span class="line">        x += d * n * inv_n</span><br><span class="line">        x %= N</span><br><span class="line">    </span><br><span class="line">    return x, N</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">计算结果</span></span><br><span class="line">reduced_equations = [(1, solve_one_equation(a, d, p), p) for a, d, p in equations]</span><br><span class="line">m, mod = chinese_remainder_theorem(reduced_equations)</span><br><span class="line"></span><br><span class="line">print(f&quot;Recovered m: &#123;m&#125;&quot;)</span><br><span class="line"></span><br><span class="line">flag = long_to_bytes(m)</span><br><span class="line"></span><br><span class="line">print(f&quot;Recovered flag: &#123;flag.decode()&#125;&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="真假流量"><a href="#真假流量" class="headerlink" title="真假流量"></a>真假流量</h3><p>使用foremost工具分离png文件得到压缩包</p>
-<p><img src="https://pic.imgdb.cn/item/676c198fd0e0a243d4ea54a0.png"></p>
+<p><img loading="lazy" decoding="async" data-src="https://pic.imgdb.cn/item/676c198fd0e0a243d4ea54a0.png"></p>
 <p>在压缩包的word文档中找到白色的flag</p>
 <h3 id="不要作弊"><a href="#不要作弊" class="headerlink" title="不要作弊"></a>不要作弊</h3><p>（有蒙对成分</p>
 <p>发现PDF文档中这一条标红且为中国ip</p>
-<p><img src="https://pic.imgdb.cn/item/676c1b01d0e0a243d4ea54d2.png"></p>
+<p><img loading="lazy" decoding="async" data-src="https://pic.imgdb.cn/item/676c1b01d0e0a243d4ea54d2.png"></p>
 <p>猜测恶意主机地址为103开头，检索得到</p>
-<p><img src="https://pic.imgdb.cn/item/676c1bc8d0e0a243d4ea54f5.png"></p>
+<p><img loading="lazy" decoding="async" data-src="https://pic.imgdb.cn/item/676c1bc8d0e0a243d4ea54f5.png"></p>
 <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="SignIn"><a href="#SignIn" class="headerlink" title="SignIn"></a>SignIn</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line">error_reporting(0);</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">if(isset($</span><span class="language-bash">_GET[<span class="string">&#x27;a&#x27;</span>]) &amp;&amp; isset(<span class="variable">$_GET</span>[<span class="string">&#x27;b&#x27;</span>]))&#123;</span></span><br><span class="line">    $a = (string) $_GET[&#x27;a&#x27;];</span><br><span class="line">    $b = (string) $_GET[&#x27;b&#x27;];</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    die(&quot;welcome to CBCTF2024 :)&quot;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">if(ctype_print($</span><span class="language-bash">a) &amp;&amp; ctype_print(<span class="variable">$b</span>))&#123;</span></span><br><span class="line">    if($a != $b &amp;&amp; md5($a) === md5($b))&#123;</span><br><span class="line">        echo &quot;&lt;p&gt;great&lt;/p&gt;&quot;;</span><br><span class="line">        echo file_get_contents(&quot;/flag&quot;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        echo &quot;try again&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    echo &quot;no fastcoll :(&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">welcome to CBCTF2024 :)</span><br></pre></td></tr></table></figure>
 <p>从代码中我们可以看到，它要求用户输入两个不同的字符串a和b，这两个字符串的MD5哈希值必须相同。根据线索</p>
-<p><img src="https://pic.imgdb.cn/item/676c1ca6d0e0a243d4ea552c.png"></p>
+<p><img loading="lazy" decoding="async" data-src="https://pic.imgdb.cn/item/676c1ca6d0e0a243d4ea552c.png"></p>
 <p>构造URL <code>http://example.com/?a=STRING_A&amp;b=STRING_B</code> 得到flag</p>
 </div>
 </div>
@@ -393,7 +394,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9999;
-    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: 'SpotifyMix', "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -578,7 +579,7 @@ const PlayerState = {
     box-shadow: var(--shadow);
     padding: 16px;
     z-index: 9998;
-    font-family: 'SpotifyMix', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: 'SpotifyMix', "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
     border: 1px solid var(--border-color);
@@ -653,12 +654,6 @@ const PlayerState = {
     background: rgba(0, 188, 212, 0.6);
     border-radius: 2px;
   }
-  html.harmony-font-loaded #floating-player,
-  html.harmony-font-loaded #playlist-container {
-    font-family: 'SpotifyMix', 'HarmonyOS_Sans_SC_Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  }
-
-  
   @media (max-width: 480px) {
     #floating-player {
       width: 90%;
@@ -1032,9 +1027,10 @@ document.addEventListener('page:loaded', () => {
             
             linkCard.innerHTML = 
               '<div class="link-card-content">' +
-                '<img class="link-avatar" ' +
+                '<img loading="lazy" decoding="async" class="link-avatar" ' +
                      'src="' + avatarUrl + '" ' +
                      'alt="' + link.name + '" ' +
+                     'loading="lazy" decoding="async" ' +
                      'onerror="this.src=\'https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/link/missing.png\'">' +
                 '<h3 class="link-title">' + link.name + '</h3>' +
               '</div>';
@@ -1110,60 +1106,6 @@ document.addEventListener('page:loaded', () => {
     initLinksPage();
   }
   
-})();
-</script>
-
-<script>
-(function() {
-  'use strict';
-
-  var fontFamily = 'HarmonyOS_Sans_SC_Regular';
-  var fontUrl = '/fonts/HarmonyOS_Sans_SC_Regular.woff2';
-  var loadedClass = 'harmony-font-loaded';
-
-  function shouldSkipDeferredFont() {
-    var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    return connection && (
-      connection.saveData ||
-      connection.effectiveType === 'slow-2g' ||
-      connection.effectiveType === '2g'
-    );
-  }
-
-  async function loadDeferredFont() {
-    if (!('FontFace' in window) || !document.fonts || shouldSkipDeferredFont()) {
-      return;
-    }
-
-    try {
-      var fontFace = new FontFace(
-        fontFamily,
-        'url("' + fontUrl + '") format("woff2")',
-        { style: 'normal', weight: '400' }
-      );
-      var loadedFont = await fontFace.load();
-      document.fonts.add(loadedFont);
-      document.documentElement.classList.add(loadedClass);
-    } catch (error) {
-      console.warn('中文设计字体后台加载失败：', error);
-    }
-  }
-
-  function scheduleDeferredFont() {
-    setTimeout(function() {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadDeferredFont, { timeout: 5000 });
-      } else {
-        loadDeferredFont();
-      }
-    }, 3000);
-  }
-
-  if (document.readyState === 'complete') {
-    scheduleDeferredFont();
-  } else {
-    window.addEventListener('load', scheduleDeferredFont, { once: true });
-  }
 })();
 </script>
 

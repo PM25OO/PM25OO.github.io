@@ -1307,7 +1307,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #996fff;
+    background: #debbff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2968,10 +2968,5 @@ header.header {
 }
 body,
 html {
-  font-family: 'SpotifyMix-Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-html.harmony-font-loaded,
-html.harmony-font-loaded body,
-html.harmony-font-loaded .post-body {
-  font-family: 'SpotifyMix-Regular', 'HarmonyOS_Sans_SC_Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'SpotifyMix-Regular', "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
